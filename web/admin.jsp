@@ -1,4 +1,4 @@
-<%@include file="vail1.jsp" %>
+<%--<%@include file="vail1.jsp" %>--%>
 <%@ page import="dao.PostDao" %>
 <%@ page import="dao.ReplyDao" %>
 <%@ page import="dao.UserDao" %>

@@ -18,9 +18,9 @@ public class UserDao {
         PreparedStatement prep =
                 null;
         try {
-            prep = conn.prepareStatement("select * from user where email=? and password=?;");
-            prep.setString(1,email);
-            prep.setString(2,password);
+            String sql="select * from user where email=\'"+email+"\' and password=\'"+password+"\';";
+            prep = conn.prepareStatement(sql);
+
             ResultSet rst = prep.executeQuery();
 
             if (rst.next()){
